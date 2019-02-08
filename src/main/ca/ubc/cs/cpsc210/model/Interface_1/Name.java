@@ -1,0 +1,1 @@
+package ca.ubc.cs.cpsc210.model.Interface_1;public class Name {    // REQUIRES:    // MODIFIES:    // EFFECTS:    public void selectName() {    }    // REQUIRES:    // MODIFIES:    // EFFECTS:    public void showName() {    }}
