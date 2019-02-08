@@ -1,4 +1,6 @@
-package ca.ubc.cs.cpsc210.parsers;
+package ca.ubc.cs.cpsc210.List;
+
+import ca.ubc.cs.cpsc210.model.Interface_1.Profile;
 
 import java.util.ArrayList;
 import java.util.List;

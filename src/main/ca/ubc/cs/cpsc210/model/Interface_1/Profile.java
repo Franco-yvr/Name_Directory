@@ -1,4 +1,4 @@
-package ca.ubc.cs.cpsc210.parsers;
+package ca.ubc.cs.cpsc210.model.Interface_1;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,18 +6,26 @@ import java.util.List;
 public class Profile {
 
     public List<String> profile;
-
+//REQUIRE: Name field must not be null
     // MODIFIES: this
-    // EFFECTS: Construct an empty list of profile to store name, description, wheretag and connecttag
-    public void profile() {
-        this.profile = new ArrayList<>();
-
+    // EFFECTS: Construct a profile that contains name, description, wheretag and connecttag fields
+    public void profile(Name name,Description description,WhereTag wheretag,ConnectTag connecttag) {
+        this.Name = name;
+        Description = description;
+        WhereTag = wheretag;
+        ConnectTag = connecttag;
     }
 
     // MODIFIES: this
     // EFFECTS: Add item to the list
     public void add(String item) {
         profile.add(item);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Remove item to the list
+    public void remove(int index) {
+        profile.remove(index);
     }
 
     // MODIFIES: this
