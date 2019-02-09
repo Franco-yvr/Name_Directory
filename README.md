@@ -1,5 +1,6 @@
+Initial proposal:
 
-Requirements:
+"Requirements:
 1-	The interface #1 displays a “Name”, “Description”, “Where Tags” and “Reconnect Tags” text fields.
 2-	The interface #1 displays an “Interface#2” button at the top of the screen.
 3-	The interface #1 displays a “Save” button at the bottom of the screen.
@@ -28,7 +29,47 @@ Interface#2aaa
 -	the application displays the results in alphabetical order of the result’s first name
 -	the application displays “Displaying __ results” at the bottom of the screen
 4-	When the user erases the “Search” text field, types a new entry, then presses enter, the application proceeds with the new search.
-5-	When the user clicks on “Interface#1” button, the application returns the “Interface#1”.
+5-	When the user clicks on “Interface#1” button, the application returns the “Interface#1”."
 
 
 Part1 Structure & implementation
+
+Functions for Name Class:                   Name (Constructor)
+                                            getName
+                                            getName
+
+Functions for Description Class:            Description (Constructor)
+                                            getDescription
+                                            setDescription
+
+Functions for WhereTag Class:               WhereTag (Constructor)
+                                            convertIntoList(REQUIRES ATTENTION)
+                                            addTag
+                                            getTag
+                                            removeTag
+                                            indexOf
+
+Functions for ConnectTag Class:             ConnectTag (Constructor)
+                                            convertIntoList(REQUIRES ATTENTION)
+                                            addTag
+                                            getTag
+                                            removeTag
+                                            indexOf
+
+Functions for Profile Class:                Profile(Constructor)
+                                            CreateNewProfile(REQUIRES ATTENTION)
+
+
+
+
+Need to do: Abstract the tag folders
+            create search
+            Learn JSON file
+            Learn Android Studio
+            implement the search function
+            Implement the Result function
+            Test the SaveAction and search function
+
+
+Fixes: Need to figure out the public and private field
+       Need to reassess the search function paper
