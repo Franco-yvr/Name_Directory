@@ -29,3 +29,6 @@ Interface#2aaa
 -	the application displays “Displaying __ results” at the bottom of the screen
 4-	When the user erases the “Search” text field, types a new entry, then presses enter, the application proceeds with the new search.
 5-	When the user clicks on “Interface#1” button, the application returns the “Interface#1”.
+
+
+Part1 Structure & implementation
