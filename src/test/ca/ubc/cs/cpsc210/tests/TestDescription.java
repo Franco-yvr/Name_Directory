@@ -29,4 +29,3 @@ public class TestDescription {
         assertEquals(testing, "Initial Description for test");
     }
 }
-}

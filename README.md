@@ -62,7 +62,7 @@ Functions for Profile Class:                Profile(Constructor)
 
 
 
-Need to do: Abstract the tag folders
+Need to do: Abstract the tag folders (DONE)
             create search (DONE)
             Learn JSON file
             Learn Android Studio
