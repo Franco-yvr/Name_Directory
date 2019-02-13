@@ -63,13 +63,15 @@ Functions for Profile Class:                Profile(Constructor)
 
 
 Need to do: Abstract the tag folders
-            create search
+            create search (DONE)
             Learn JSON file
             Learn Android Studio
-            implement the search function
+            implement the search function (DONE)
             Implement the Result function
             Test the SaveAction and search function
+            Reset: erase fields in interface 1:
+            convertIntoList (parsing problem)
 
 
 Fixes: Need to figure out the public and private field
-       Need to reassess the search function paper
+

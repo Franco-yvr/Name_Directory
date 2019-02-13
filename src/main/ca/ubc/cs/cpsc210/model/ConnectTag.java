@@ -1,4 +1,4 @@
-package ca.ubc.cs.cpsc210.model.Interface_1;
+package ca.ubc.cs.cpsc210.model;
 
 import java.util.ArrayList;
 
@@ -38,17 +38,6 @@ public class ConnectTag {
         return connecttag.get(index);
     }
 
-    // MODIFIES: this
-    // EFFECTS: removes tag from list given index
-    public void removeTag(int index) {
-        connecttag.remove(index);
-    }
-
-    // EFFECTS: Return true is the ConnectTag strings contains given letter
-    public int indexOf(String searched) {
-        return connecttag.indexOf(searched);
-    }
-
     //REQUIRE: tag list must not be empty
     //EFFECTS: Search the tag list for the keywords entered in the user interface search box.
     //Return true is keyword is found.
@@ -61,4 +50,16 @@ public class ConnectTag {
         }
         return false;
     }
+
+
+//    // MODIFIES: this
+//    // EFFECTS: removes tag from list given index
+//    public void removeTag(int index) {
+//        connecttag.remove(index);
+//    }
+//
+//    // EFFECTS: Return true is the ConnectTag strings contains given letter
+//    public int indexOf(String searched) {
+//        return connecttag.indexOf(searched);
+//    }
 }
