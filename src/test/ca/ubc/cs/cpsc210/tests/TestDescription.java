@@ -1,9 +1,6 @@
 package ca.ubc.cs.cpsc210.tests;
-
 import ca.ubc.cs.cpsc210.model.Description;
-import ca.ubc.cs.cpsc210.model.Name;
 import org.junit.jupiter.api.Test;
-import sun.security.krb5.internal.crypto.Des;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

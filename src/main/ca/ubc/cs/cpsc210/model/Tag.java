@@ -22,12 +22,6 @@ public class Tag {
         tag.add(newtag);
     }
 
-    // MODIFIES: this
-    // EFFECTS: Return tag object when called
-    public List<String> getTag() {
-        return tag;
-    }
-
     // EFFECTS: Return tag Item from the list when called with tag index
     public String getTagItem(int index) {
         return tag.get(index);
@@ -64,3 +58,9 @@ public class Tag {
 //public boolean indexOf(String searched) {
 //   return tag.indexOf(searched);
 //}
+
+//    // MODIFIES: this
+//    // EFFECTS: Return tag object when called
+//    public List<String> getTag() {
+//        return tag;
+//    }
