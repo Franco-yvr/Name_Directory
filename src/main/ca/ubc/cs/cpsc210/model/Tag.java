@@ -12,15 +12,9 @@ public class Tag {
     //MODIFIES:this
     //EFFECTS: Construct a tag list when given a string containing individual tags
     public Tag(String longstring) {
-        this.tag = Arrays.asList(longstring.split("@", 0));
+        this.tag = new ArrayList<>(Arrays.asList(longstring.split("@")));
+        tag.remove(0);
     }
-
-//        while (hasNext(tag)) ;
-//        if (next("@")) {
-//            int starttag = tag.indexOf("@");
-//            int endtag = tag.indexOf("@") - 1;
-//            addTag(tag.substring(starttag, endtag));
-
 
     //MODIFIES:this
     //EFFECTS:Add new item to list of tags
@@ -44,7 +38,7 @@ public class Tag {
     //Return true is keyword is found.
     public boolean searchTag(String searched) {
         int i;
-        for (i = 0; i == tag.size() - 1; i++) {
+        for (i = 0; i < tag.size(); i++) {
             if (tag.get(i).contains(searched)) {
                 return true;
             }
@@ -53,6 +47,12 @@ public class Tag {
     }
 }
 
+
+//        while (hasNext(tag)) ;
+//        if (next("@")) {
+//            int starttag = tag.indexOf("@");
+//            int endtag = tag.indexOf("@") - 1;
+//            addTag(tag.substring(starttag, endtag));
 
 ///MODIFIES: this
 // EFFECTS: removes tag from list given index

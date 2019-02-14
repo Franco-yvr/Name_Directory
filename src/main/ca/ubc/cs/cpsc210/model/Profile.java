@@ -3,7 +3,7 @@ package ca.ubc.cs.cpsc210.model;
 
 public class Profile {
 
-    public Profile profile;
+    public Profile p;
     private Name name;
     private Description description;
     private WhereTag wheretag;
@@ -13,11 +13,11 @@ public class Profile {
     //REQUIRE: Name field must not be null
     // MODIFIES: this
     // EFFECTS: Construct a profile that contains name, description, wheretag and connecttag fields
-    public Profile(Name name, Description description, WhereTag wheretag, ConnectTag connecttag) {
-        this.name = name;
-        this.description = description;
-        this.wheretag = wheretag;
-        this.connecttag = connecttag;
+    public Profile(String name, String description, String wheretag, String connecttag) {
+        this.name = new Name(name);
+        this.description = new Description(description);
+        this.wheretag = new WhereTag(wheretag);
+        this.connecttag = new ConnectTag(connecttag);
     }
 
     // MODIFIES: this
@@ -43,9 +43,6 @@ public class Profile {
     public ConnectTag getConnectTag() {
         return connecttag;
     }
-
-
-
 }
 
 

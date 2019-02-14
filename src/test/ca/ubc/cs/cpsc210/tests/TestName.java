@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestName {
 
     @Test
-    public void testName() {
+    public void testNameConstructor() {
         Name n = new Name("bamboo");
         assertEquals(n.getName(), "bamboo");
     }
@@ -23,7 +23,7 @@ public class TestName {
     @Test
     public void getName() {
         Name n = new Name("flax");
-        String testing = n.getName()
+        String testing = n.getName();
         assertEquals(testing, "flax");
     }
 }

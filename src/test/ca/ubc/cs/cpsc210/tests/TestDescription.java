@@ -10,9 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestDescription {
 
     @Test
-    public void TestDescription() {
+    public void TestDescriptionConstructor() {
         Description d = new Description("Initial Description for test");
-        assertEquals(d.getDescription(), "Growing fast like an aloe");
+        assertEquals(d.getDescription(), "Initial Description for test");
     }
 
     @Test

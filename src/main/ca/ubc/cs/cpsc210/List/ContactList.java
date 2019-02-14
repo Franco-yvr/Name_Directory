@@ -17,6 +17,12 @@ public class ContactList {
     }
 
     // MODIFIES: this
+    // EFFECTS: return contactList field
+    public List<Profile> getContactList() {
+        return contactlist;
+    }
+
+    // MODIFIES: this
     // EFFECTS: Add item to the list
     public void add(Profile profile) {
         contactlist.add(profile);
@@ -30,32 +36,19 @@ public class ContactList {
 
     // MODIFIES: this
     // EFFECTS: obtain number of item in the list
-    private int length() {
+    public int lengthContactList() {
         return contactlist.size();
-    }
-
-    //REQUIRE: Contact list must not be empty
-    //EFFECTS: Search the keywords entered in the user interface search box
-    // in each the name, description, wheretag and connecttag for each profile
-    // contained in ContactList
-    private void createSearchList(String searched) {
-        int i;
-        ArrayList results = new ArrayList<>();
-        for (i = 0; i == contactlist.size() - 1; i++) ;
-        if (searchProfile(i, searched)) {
-            results.add(i);
-        }
     }
 
     // MODIFIES: ContactList
     // EFFECTS: Create new profile and adds it to the ContactList
-    public void saveButton(Name name, Description description, WhereTag wheretag, ConnectTag connecttag) {
-        if (name != null) {
+    public boolean addContact(String name, String description, String wheretag, String connecttag) {
+        if (name != "") {
             Profile p = new Profile(name, description, wheretag, connecttag);
             contactlist.add(p);
-            //Reset: erase fields in interface 1:
-            System.out.println("The profile has been created");
+            return true;
         }
+        return false;
     }
 
     //REQUIRE: Contact list must not be empty
@@ -77,7 +70,7 @@ public class ContactList {
     //EFFECTS: Search the keywords entered in the user interface search box
     // in each the name, description, wheretag and connecttag for each profile
     // contained in ContactList
-    public void searchResult(String searched) {
+    public List<Profile> searchResult(String searched) {
         int i;
         List<Profile> results = new ArrayList<>();
         for (i = 0; i < contactlist.size(); i++) {
@@ -85,7 +78,20 @@ public class ContactList {
                 results.add(contactlist.get(i));
             }
         }
-        //print results
-
+        return results;
     }
 }
+
+
+//REQUIRE: Contact list must not be empty
+//    //EFFECTS: Search the keywords entered in the user interface search box
+//    // in each the name, description, wheretag and connecttag for each profile
+//    // contained in ContactList
+//    private void createSearchList(String searched) {
+//        int i;
+//        ArrayList results = new ArrayList<>();
+//        for (i = 0; i == contactlist.size() - 1; i++) ;
+//        if (searchProfile(i, searched)) {
+//            results.add(i);
+//        }
+//    }
