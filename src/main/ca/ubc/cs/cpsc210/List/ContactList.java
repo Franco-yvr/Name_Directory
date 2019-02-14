@@ -30,7 +30,7 @@ public class ContactList {
 
     // MODIFIES: this
     // EFFECTS: obtain number of item in the list
-    public int length() {
+    private int length() {
         return contactlist.size();
     }
 
@@ -38,7 +38,7 @@ public class ContactList {
     //EFFECTS: Search the keywords entered in the user interface search box
     // in each the name, description, wheretag and connecttag for each profile
     // contained in ContactList
-    public void createSearchList(String searched) {
+    private void createSearchList(String searched) {
         int i;
         ArrayList results = new ArrayList<>();
         for (i = 0; i == contactlist.size() - 1; i++) ;
@@ -62,11 +62,11 @@ public class ContactList {
     //EFFECTS: Search one profile for the keywords entered in the user interface search box
     //in each the name, description, wheretag and connecttag. Return true is keyword is found
     //in one or more field.
-    public boolean searchProfile(int index, String searched) {
-        if (getContact(index).getName().contains(searched) ||
-                getContact(index).getDescription().contains(searched) ||
-                getContact(index).searchWhereTag() ||
-                getContact(index).searchConnectTag()) {
+    private boolean searchProfile(int index, String searched) {
+        if (getContact(index).getName().getName().contains(searched)
+                || getContact(index).getDescription().getDescription().contains(searched)
+                || getContact(index).getWhereTag().searchTag(searched)
+                || getContact(index).getConnectTag().searchTag(searched)) {
             return true;
         } else {
             return false;
@@ -79,10 +79,13 @@ public class ContactList {
     // contained in ContactList
     public void searchResult(String searched) {
         int i;
-        ArrayList results = new ArrayList<>();
-        for (i = 0; i == contactlist.size() - 1; i++) ;
-        if (searchProfile(i, searched)) {
-            results.add(i);
+        List<Profile> results = new ArrayList<>();
+        for (i = 0; i < contactlist.size(); i++) {
+            if (searchProfile(i, searched)) {
+                results.add(contactlist.get(i));
+            }
         }
+        //print results
+
     }
 }

@@ -1,25 +1,26 @@
 package ca.ubc.cs.cpsc210.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static java.util.Arrays.asList;
 
 public class Tag {
-    public ArrayList<String> tag;
-
-    public Tag() {
-        this.tag = tag;
-    }
+    public List<String> tag;
 
     //MODIFIES:this
-    //EFFECTS: Convert a series of horizontally written tags into a list of tags
-    public void convertIntoList(String longstring) {
-        tag = new ArrayList<String>();
-        while (hasNext(tag)) ;
-        if (next("@")) {
-            int starttag = tag.indexOf("@");
-            int endtag = tag.indexOf("@") - 1;
-            addTag(tag.substring(starttag, endtag));
-        }
+    //EFFECTS: Construct a tag list when given a string containing individual tags
+    public Tag(String longstring) {
+        this.tag = Arrays.asList(longstring.split("@", 0));
     }
+
+//        while (hasNext(tag)) ;
+//        if (next("@")) {
+//            int starttag = tag.indexOf("@");
+//            int endtag = tag.indexOf("@") - 1;
+//            addTag(tag.substring(starttag, endtag));
+
 
     //MODIFIES:this
     //EFFECTS:Add new item to list of tags
@@ -28,8 +29,13 @@ public class Tag {
     }
 
     // MODIFIES: this
-    // EFFECTS: Return tag when index called
-    public String getTag(int index) {
+    // EFFECTS: Return tag object when called
+    public List<String> getTag() {
+        return tag;
+    }
+
+    // EFFECTS: Return tag Item from the list when called with tag index
+    public String getTagItem(int index) {
         return tag.get(index);
     }
 

@@ -9,6 +9,7 @@ public class Profile {
     private WhereTag wheretag;
     private ConnectTag connecttag;
 
+
     //REQUIRE: Name field must not be null
     // MODIFIES: this
     // EFFECTS: Construct a profile that contains name, description, wheretag and connecttag fields
@@ -20,15 +21,27 @@ public class Profile {
     }
 
     // MODIFIES: this
-    // EFFECTS: Return profile when called
-    public Profile getProfile() {
-        return profile;
+    // EFFECTS: Return name when called
+    public Name getName() {
+        return name;
     }
 
     // MODIFIES: this
-    // EFFECTS: Set the profile string to new string
-    public void setProfile(Profile profile) {
-        this.profile = profile;
+    // EFFECTS: Return description when called
+    public Description getDescription() {
+        return description;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Return wheretag when called
+    public WhereTag getWhereTag() {
+        return wheretag;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Return ConnectTag when called
+    public ConnectTag getConnectTag() {
+        return connecttag;
     }
 
 
