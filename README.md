@@ -36,42 +36,58 @@ Part1 Structure & implementation
 
 Functions for Name Class:                   Name (Constructor)
                                             getName
-                                            getName
+                                            setName
 
 Functions for Description Class:            Description (Constructor)
                                             getDescription
                                             setDescription
 
 Functions for WhereTag Class:               WhereTag (Constructor)
-                                            convertIntoList(REQUIRES ATTENTION)
-                                            addTag
-                                            getTag
-                                            removeTag
-                                            indexOf
 
 Functions for ConnectTag Class:             ConnectTag (Constructor)
-                                            convertIntoList(REQUIRES ATTENTION)
+
+Tag                                         Constructor (convertIntoList)
                                             addTag
                                             getTag
-                                            removeTag
-                                            indexOf
+                                            getTagItem
+                                            searchTag
+
 
 Functions for Profile Class:                Profile(Constructor)
-                                            CreateNewProfile(REQUIRES ATTENTION)
+                                            4 getters
+
+Functions for ContactList Class:            getContactList
+                                            add
+                                            getContact
+                                            lengthContactList
+                                            addContact
+                                            searchProfile
+                                            searchResult
 
 
-
-
-Need to do: Abstract the tag folders (DONE)
-            create search (DONE)
-            Learn JSON file
-            Learn Android Studio
+to do:      Abstract the tag folders (DONE)
+            create search method (DONE)
+            Need to figure out the public and private field (DONE)
             implement the search function (DONE)
-            Implement the Result function
-            Test the SaveAction and search function
-            Reset: erase fields in interface 1:
-            convertIntoList (parsing problem)
+            Implement the Result function (DONE)
+            Test ALL methods (DONE)
+            convertIntoList (parsing problem) (DONE)
 
 
-Fixes: Need to figure out the public and private field
+To be Fixed: Potentially remove redundant methods
+                              -"add"
+                              -"getTagItem"
+                              -lengthContactList
+                              -clean //reject piles of dismissed methods
+                              
+
+Next: Exceptions
+      Figure out how to display the results list made by searchResult
+      Implement a main
+
+
+
+Longer term:Learn JSON file
+            Learn Android Studio
+            Learn how to Reset fields in interface 1
 
