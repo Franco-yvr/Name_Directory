@@ -16,6 +16,12 @@ public class Tag {
         tag.remove(0);
     }
 
+    // MODIFIES: this
+    // EFFECTS: Return tag object when called
+    public List<String> getTag() {
+        return tag;
+    }
+
     //MODIFIES:this
     //EFFECTS:Add new item to list of tags
     public void addTag(String newtag) {
@@ -59,8 +65,3 @@ public class Tag {
 //   return tag.indexOf(searched);
 //}
 
-//    // MODIFIES: this
-//    // EFFECTS: Return tag object when called
-//    public List<String> getTag() {
-//        return tag;
-//    }

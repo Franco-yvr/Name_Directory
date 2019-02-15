@@ -16,6 +16,9 @@ public class TestTag {
     // capitalisation and minor variations, the parser will take only
     // exact entries without spaces
 
+    Profile p = new Profile("Bill", "tall", "@Squamish","@2012");
+
+
     @Test
     public void testTagConstructorWithString() {
         assertEquals(testTag.getTagItem(0), "Whistler");
@@ -26,7 +29,12 @@ public class TestTag {
     @Test
     public void testTagConstructorEmpty() {
         Tag testTag2 = new Tag("");
-        assertEquals(testTag2.getTagItem(0), "");
+        assertTrue(testTag2.getTag().isEmpty());
+    }
+
+    @Test
+    public void testGetTag(){
+        assertEquals(testTag.getTag().get(2), "Sam's");
     }
 
     @Test
@@ -43,12 +51,22 @@ public class TestTag {
     @Test
     public void getTagItemEmpty() {
         Tag testTag2 = new Tag("");
-        assertEquals(testTag2.getTagItem(0), "");
+        assertTrue(testTag2.getTag().isEmpty());
     }
 
     @Test
-    public void testSearchTagWhenKeyWordPresent() {
+    public void testSearchTagWhenKeyWordPresentFirstField() {
+        assertTrue(testTag.searchTag("Whistler"));
+    }
+
+    @Test
+    public void testSearchTagWhenKeyWordPresentSecondField() {
         assertTrue(testTag.searchTag("2017"));
+    }
+
+    @Test
+    public void testSearchTagWhenKeyWordPresentThirdField() {
+        assertTrue(testTag.searchTag("Sam's"));
     }
 
     @Test

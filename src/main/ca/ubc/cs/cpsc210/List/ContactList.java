@@ -22,7 +22,7 @@ public class ContactList {
         return contactlist;
     }
 
-    // MODIFIES: this
+    //MODIFIES: this
     // EFFECTS: Add item to the list
     public void add(Profile profile) {
         contactlist.add(profile);

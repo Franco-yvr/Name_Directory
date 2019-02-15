@@ -4,6 +4,8 @@ import ca.ubc.cs.cpsc210.List.ContactList;
 import ca.ubc.cs.cpsc210.model.*;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestContactList {
@@ -21,11 +23,21 @@ public class TestContactList {
         assertTrue(c.getContactList().isEmpty());
     }
 
+    //getContactList is already tested in the previous test
+
     @Test
     public void TestAdd() {
-        c.getContactList().add(p);
+        c.add(p);
         assertEquals(c.getContact(0), p);
     }
+
+    @Test
+    public void TestAddAgain() {
+        c.getContactList().add(p);
+        c.getContactList().add(p);
+        assertEquals(c.getContact(1), p);
+    }
+
 
     @Test
     public void TestGetContact() {
@@ -58,8 +70,37 @@ public class TestContactList {
     }
 
     @Test
-    public void TestSearchResultWithWordPresent() {
+    public void TestSearchResultWithWordPresentNameConnectTagField() {
         c.getContactList().add(p);
-        assertEquals(c.searchResult("Bill").get(0).getName().getName(), "Bill");
+        List<Profile> testlist = c.searchResult("2012");
+        assertEquals(testlist.get(0).getConnectTag().getTagItem(0), "2012");
+    }
+
+    @Test
+    public void TestSearchResultWithWordPresentWhereTagField() {
+        c.getContactList().add(p);
+        List<Profile> testlist = c.searchResult("Squamish");
+        assertEquals(testlist.get(0).getWhereTag().getTagItem(0), "Squamish");
+    }
+
+    @Test
+    public void TestSearchResultWithWordPresentDescriptionField() {
+        c.getContactList().add(p);
+        List<Profile> testlist = c.searchResult("tall");
+        assertEquals(testlist.get(0).getDescription().getDescription(), "tall");
+    }
+
+    @Test
+    public void TestSearchResultWithWordPresentNameField() {
+        c.getContactList().add(p);
+        List<Profile> testlist = c.searchResult("Bill");
+        assertEquals(testlist.get(0).getName().getName(), "Bill");
+    }
+
+    @Test
+    public void TestSearchResultWithoutPresent() {
+        c.getContactList().add(p);
+        assertTrue(c.searchResult("2013").isEmpty());
     }
 }
+
