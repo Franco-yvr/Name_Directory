@@ -1,7 +1,6 @@
-package ca.ubc.cs.cpsc210.List;
+package ca.ubc.cs.cpsc210.list;
 
 import ca.ubc.cs.cpsc210.model.*;
-
 import java.util.ArrayList;
 import java.util.List;
 

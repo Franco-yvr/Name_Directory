@@ -3,7 +3,6 @@ package ca.ubc.cs.cpsc210.model;
 
 public class Profile {
 
-    public Profile p;
     private Name name;
     private Description description;
     private WhereTag wheretag;

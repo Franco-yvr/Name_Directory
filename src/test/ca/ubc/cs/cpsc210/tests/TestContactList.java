@@ -1,6 +1,6 @@
 package ca.ubc.cs.cpsc210.tests;
 
-import ca.ubc.cs.cpsc210.List.ContactList;
+import ca.ubc.cs.cpsc210.list.ContactList;
 import ca.ubc.cs.cpsc210.model.*;
 import org.junit.jupiter.api.Test;
 
