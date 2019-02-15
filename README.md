@@ -79,7 +79,7 @@ To be Fixed: Potentially remove redundant methods
                               -"getTagItem"
                               -lengthContactList
                               -clean //reject piles of dismissed methods
-                              
+
 
 Next: Exceptions
       Figure out how to display the results list made by searchResult

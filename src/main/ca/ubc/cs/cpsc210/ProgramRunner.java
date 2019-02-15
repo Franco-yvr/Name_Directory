@@ -1,6 +1,6 @@
 package ca.ubc.cs.cpsc210;
 
-public class Main {
+public class ProgramRunner {
 
     public static void main(String[] args){
 

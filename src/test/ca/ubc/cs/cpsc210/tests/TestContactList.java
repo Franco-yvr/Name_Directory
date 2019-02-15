@@ -1,6 +1,6 @@
 package ca.ubc.cs.cpsc210.tests;
 
-import ca.ubc.cs.cpsc210.list.ContactList;
+import ca.ubc.cs.cpsc210.model.ContactList;
 import ca.ubc.cs.cpsc210.model.*;
 import org.junit.jupiter.api.Test;
 
@@ -10,11 +10,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestContactList {
 
-    private Name b = new Name("Bill");
-    private Description t = new Description("tall");
-    private WhereTag s = new WhereTag("@Squamish");
-    private ConnectTag two = new ConnectTag("@2012");
-    public Profile p = new Profile("Bill", "tall", "@Squamish", "@2012");
+//    private Name b = new Name("Bill");
+//    private Description t = new Description("tall");
+//    private WhereTag s = new WhereTag("@Squamish");
+//    private ConnectTag two = new ConnectTag("@2012");
+    private Profile p = new Profile("Bill", "tall", "@Squamish", "@2012");
     ContactList c = new ContactList();
 
 
