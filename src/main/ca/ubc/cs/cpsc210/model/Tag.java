@@ -1,5 +1,7 @@
 package ca.ubc.cs.cpsc210.model;
 
+//import ca.ubc.cs.cpsc210.model.exceptions.*;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -37,8 +39,9 @@ public class Tag {
     //EFFECTS: Search the tag list for the keywords entered in the user interface search box.
     //Return true is keyword is found.
     public boolean searchTag(String searched) {
-        int i;
-        for (i = 0; i < tag.size(); i++) {
+//     throws EmptyStringException   if (searched.equals(""))
+//                throw new EmptyStringException("Entry must not be empty");
+        for (int i = 0; i < tag.size(); i++) {
             if (tag.get(i).contains(searched)) {
                 return true;
             }
@@ -47,21 +50,4 @@ public class Tag {
     }
 }
 
-
-//        while (hasNext(tag)) ;
-//        if (next("@")) {
-//            int starttag = tag.indexOf("@");
-//            int endtag = tag.indexOf("@") - 1;
-//            addTag(tag.substring(starttag, endtag));
-
-///MODIFIES: this
-// EFFECTS: removes tag from list given index
-//public void removeTag(int index) {
-//    tag.remove(index);
-// }
-
-// EFFECTS: Return true is the Tag strings contains given letter
-//public boolean indexOf(String searched) {
-//   return tag.indexOf(searched);
-//}
 

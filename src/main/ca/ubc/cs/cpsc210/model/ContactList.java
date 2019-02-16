@@ -1,5 +1,7 @@
 package ca.ubc.cs.cpsc210.model;
 
+//import ca.ubc.cs.cpsc210.model.exceptions.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +56,9 @@ public class ContactList {
     //in each the name, description, wheretag and connecttag. Return true is keyword is found
     //in one or more field.
     private boolean searchProfile(int index, String searched) {
+//      throws EmptyStringException  if (searched.equals(""))
+//            throw new EmptyStringException("Entry must not be empty");
+
         if (getContact(index).getName().getName().contains(searched)
                 || getContact(index).getDescription().getDescription().contains(searched)
                 || getContact(index).getWhereTag().searchTag(searched)
@@ -71,25 +76,15 @@ public class ContactList {
     public List<Profile> searchResult(String searched) {
         int i;
         List<Profile> results = new ArrayList<>();
+//        try {
         for (i = 0; i < contactlist.size(); i++) {
             if (searchProfile(i, searched)) {
                 results.add(contactlist.get(i));
             }
         }
+//        } catch (EmptyStringException e) {
+//            System.out.println("Please type an entry");
+//        }
         return results;
     }
 }
-
-
-//REQUIRE: Contact list must not be empty
-//    //EFFECTS: Search the keywords entered in the user interface search box
-//    // in each the name, description, wheretag and connecttag for each profile
-//    // contained in ContactList
-//    private void createSearchList(String searched) {
-//        int i;
-//        ArrayList results = new ArrayList<>();
-//        for (i = 0; i == contactlist.size() - 1; i++) ;
-//        if (searchProfile(i, searched)) {
-//            results.add(i);
-//        }
-//    }
