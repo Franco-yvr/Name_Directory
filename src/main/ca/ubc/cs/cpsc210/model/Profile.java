@@ -1,10 +1,12 @@
 package ca.ubc.cs.cpsc210.model;
 
 
+import com.sun.org.glassfish.gmbal.Description;
+
 public class Profile {
 
-    private Name name;
-    private Description description;
+    private String name;
+    private String description;
     private WhereTag wheretag;
     private ConnectTag connecttag;
 
@@ -13,31 +15,29 @@ public class Profile {
     // MODIFIES: this
     // EFFECTS: Construct a profile that contains name, description, wheretag and connecttag fields
     public Profile(String name, String description, String wheretag, String connecttag) {
-        this.name = new Name(name);
-        this.description = new Description(description);
+        this.name = name;
+        this.description = description;
         this.wheretag = new WhereTag(wheretag);
         this.connecttag = new ConnectTag(connecttag);
     }
+    //new Name(name);
+    //new Description(description);
 
-    // MODIFIES: this
     // EFFECTS: Return name when called
-    public Name getName() {
-        return name;
+//    public Name getName() {return name;
+    public String getName() {return name;
     }
 
-    // MODIFIES: this
     // EFFECTS: Return description when called
-    public Description getDescription() {
-        return description;
+//    public Description getDescription() {return description;
+    public String getDescription() {return description;
     }
 
-    // MODIFIES: this
     // EFFECTS: Return wheretag when called
     public WhereTag getWhereTag() {
         return wheretag;
     }
 
-    // MODIFIES: this
     // EFFECTS: Return ConnectTag when called
     public ConnectTag getConnectTag() {
         return connecttag;

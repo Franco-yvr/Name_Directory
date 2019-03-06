@@ -1,6 +1,6 @@
 package ca.ubc.cs.cpsc210.model;
 
-//import ca.ubc.cs.cpsc210.model.exceptions.*;
+import ca.ubc.cs.cpsc210.model.exceptions.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,6 @@ public class ContactList {
         this.contactlist = new ArrayList<Profile>();
     }
 
-    // MODIFIES: this
     // EFFECTS: return contactList field
     public List<Profile> getContactList() {
         return contactlist;
@@ -28,19 +27,17 @@ public class ContactList {
         contactlist.add(profile);
     }
 
-    // MODIFIES: this
     // EFFECTS: obtain item to the list
     public Profile getContact(int index) {
         return contactlist.get(index);
     }
 
-    // MODIFIES: this
     // EFFECTS: obtain number of item in the list
     public int lengthContactList() {
         return contactlist.size();
     }
 
-    // MODIFIES: ContactList
+    // MODIFIES: this
     // EFFECTS: Create new profile and adds it to the ContactList
     public boolean addContact(String name, String description, String wheretag, String connecttag) {
         if (name != "") {
@@ -51,14 +48,11 @@ public class ContactList {
         return false;
     }
 
-    //REQUIRE: Contact list must not be empty
     //EFFECTS: Search one profile for the keywords entered in the user interface search box
     //in each the name, description, wheretag and connecttag. Return true is keyword is found
     //in one or more field.
-    private boolean searchProfile(int index, String searched) {
-//      throws EmptyStringException  if (searched.equals(""))
-//            throw new EmptyStringException("Entry must not be empty");
-
+    private boolean searchProfile(int index, String searched)  if(searched.equals(""))
+    { throw new EmptyStringException("Entry must not be empty");
         if (getContact(index).getName().getName().contains(searched)
                 || getContact(index).getDescription().getDescription().contains(searched)
                 || getContact(index).getWhereTag().searchTag(searched)
@@ -73,7 +67,7 @@ public class ContactList {
     //EFFECTS: Search the keywords entered in the user interface search box
     // in each the name, description, wheretag and connecttag for each profile
     // contained in ContactList
-    public List<Profile> searchResult(String searched) {
+    public List<Profile> searchResult(String searched) throws EmptyStringException {
         int i;
         List<Profile> results = new ArrayList<>();
 //        try {

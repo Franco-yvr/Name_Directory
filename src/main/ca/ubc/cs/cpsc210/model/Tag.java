@@ -1,14 +1,19 @@
 package ca.ubc.cs.cpsc210.model;
 
-//import ca.ubc.cs.cpsc210.model.exceptions.*;
+import ca.ubc.cs.cpsc210.model.exceptions.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import static java.util.Arrays.asList;
 
-public class Tag {
+public class Tag implements Iterable<String> {
+
+
+
+"implement the list interface"
     public List<String> tag;
 
     //MODIFIES:this
@@ -18,7 +23,10 @@ public class Tag {
         tag.remove(0);
     }
 
-    // MODIFIES: this
+    public List<String> tag = new ArrayList<>(Arrays.asList(longstring.split("@")));
+        tag.remove(0);
+    }
+
     // EFFECTS: Return tag object when called
     public List<String> getTag() {
         return tag;
@@ -38,15 +46,20 @@ public class Tag {
     //REQUIRE: Tag list must not be empty
     //EFFECTS: Search the tag list for the keywords entered in the user interface search box.
     //Return true is keyword is found.
-    public boolean searchTag(String searched) {
-//     throws EmptyStringException   if (searched.equals(""))
-//                throw new EmptyStringException("Entry must not be empty");
+    public boolean searchTag(String searched) throws EmptyStringException {
+        if (searched.equals(""))
+            throw new EmptyStringException("Entry must not be empty");
         for (int i = 0; i < tag.size(); i++) {
             if (tag.get(i).contains(searched)) {
                 return true;
             }
         }
         return false;
+    }
+
+    @Override
+    public Iterator<String> iterator() {
+        return tag.iterator();
     }
 }
 

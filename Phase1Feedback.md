@@ -53,7 +53,7 @@ method name does not seem appropriate.)
        
 Note that your `Name` and `Description` classes are not really needed. 
 The name and description could simply be represented as fields of type
-String in the `Profile` class.  
+String in the `Profile` class.  ***DONE***
 
 
                          
