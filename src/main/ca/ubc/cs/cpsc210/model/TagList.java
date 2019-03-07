@@ -6,25 +6,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-
 import static java.util.Arrays.asList;
 
-public class Tag implements Iterable<String> {
+public class TagList {
 
-
-
-"implement the list interface"
-    public List<String> tag;
+    private List<String> tag;
 
     //MODIFIES:this
     //EFFECTS: Construct a tag list when given a string containing individual tags
-    public Tag(String longstring) {
+    public TagList(String longstring) {
         this.tag = new ArrayList<>(Arrays.asList(longstring.split("@")));
         tag.remove(0);
     }
 
-    public List<String> tag = new ArrayList<>(Arrays.asList(longstring.split("@")));
-        tag.remove(0);
+    //MODIFIES:this
+    //EFFECTS: Construct a tag list when given a string containing individual tags
+    public TagList() {
+        this.tag = new ArrayList();
     }
 
     // EFFECTS: Return tag object when called
@@ -43,12 +41,10 @@ public class Tag implements Iterable<String> {
         return tag.get(index);
     }
 
-    //REQUIRE: Tag list must not be empty
+    //REQUIRE: TagList list must not be empty
     //EFFECTS: Search the tag list for the keywords entered in the user interface search box.
     //Return true is keyword is found.
-    public boolean searchTag(String searched) throws EmptyStringException {
-        if (searched.equals(""))
-            throw new EmptyStringException("Entry must not be empty");
+    public boolean searchTag(String searched)  {
         for (int i = 0; i < tag.size(); i++) {
             if (tag.get(i).contains(searched)) {
                 return true;
@@ -57,10 +53,16 @@ public class Tag implements Iterable<String> {
         return false;
     }
 
-    @Override
-    public Iterator<String> iterator() {
-        return tag.iterator();
-    }
+//    @Override
+//    public Iterator<String> iterator() {
+//        return tag.iterator();
+//    }
 }
+
+//implements Iterable<String>
+//    public TagList<Tag>(String longstring){
+//        Iterable<T> tagList = new ArrayList<>(Arrays.asList(longstring.split("@")));
+//        public Tag tag;
+//"implement the list interface"
 
 

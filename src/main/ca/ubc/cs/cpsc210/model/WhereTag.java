@@ -1,1 +1,0 @@
-package ca.ubc.cs.cpsc210.model;import java.util.ArrayList;public class WhereTag extends Tag {    // MODIFIES: this    // EFFECTS: Construct a tag to be used as a WhereTag entry    public WhereTag(String longstring) {        super(longstring);    }}

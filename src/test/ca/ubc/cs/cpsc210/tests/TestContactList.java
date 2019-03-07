@@ -12,8 +12,8 @@ public class TestContactList {
 
 //    private Name b = new Name("Bill");
 //    private Description t = new Description("tall");
-//    private WhereTag s = new WhereTag("@Squamish");
-//    private ConnectTag two = new ConnectTag("@2012");
+//    private WhereTagList s = new WhereTagList("@Squamish");
+//    private ConnectTagList two = new ConnectTagList("@2012");
     private Profile p = new Profile("Bill", "tall", "@Squamish", "@2012");
     ContactList c = new ContactList();
 

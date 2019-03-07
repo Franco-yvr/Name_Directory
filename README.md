@@ -64,6 +64,7 @@ Functions for ContactList Class:            getContactList
                                             searchProfile
                                             searchResult
 
+=================================================================================================================
 
 to do:      Abstract the tag folders (DONE)
             create search method (DONE)
@@ -81,7 +82,7 @@ To be Fixed: Potentially remove redundant methods
                               -clean //reject piles of dismissed methods
 
 
-Next: Exceptions
+Next: Exceptions (add exception on profile -> name cannot be null)
       Figure out how to display the results list made by searchResult
       Implement a main
 
@@ -90,4 +91,7 @@ Next: Exceptions
 Longer term:Learn JSON file
             Learn Android Studio
             Learn how to Reset fields in interface 1
+            google how the equals and hashmap override works
+            google how to save JSON data into a file in your computer
+
 
