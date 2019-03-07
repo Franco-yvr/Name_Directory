@@ -1,0 +1,15 @@
+Tasks Done:
+-Completed Jsonifier and Parser
+-Made Name & Description as String and commented out tests
+-Attempted to implement main to install the exceptions
+-Set up the tests to be implemented
+
+
+Lessons learned:
+-Learned about casting
+-learned about JSON
+-improved understanding Apparent/actual type: compiler only sees the apparent type, need to cast appearance(The actual type of the variable a is A. There's no changing that)https://stackoverflow.com/questions/1514214/java-terminology-clarification
+-Random bits of learnings
+
+Thursday
+-Deleted addContact to reduce coupling

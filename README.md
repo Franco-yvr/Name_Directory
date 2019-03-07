@@ -85,7 +85,8 @@ To be Fixed: Potentially remove redundant methods
 Next: Exceptions (add exception on profile -> name cannot be null)
       Figure out how to display the results list made by searchResult
       Implement a main
-
+      implement the test for json
+      install try catch for all exceptions intalled in the program
 
 
 Longer term:Learn JSON file
@@ -93,5 +94,6 @@ Longer term:Learn JSON file
             Learn how to Reset fields in interface 1
             google how the equals and hashmap override works
             google how to save JSON data into a file in your computer
+            start GUI
 
 

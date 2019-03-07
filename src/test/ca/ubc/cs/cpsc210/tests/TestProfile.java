@@ -10,8 +10,8 @@ public class TestProfile {
 
     @Test
     public void testProfileConstructor(){
-        assertEquals(p.getName().getName(),"Bill");
-        assertEquals(p.getDescription().getDescription(),"tall");
+        assertEquals(p.getName(),"Bill");
+        assertEquals(p.getDescription(),"tall");
         assertEquals(p.getWhereTag().getTagItem(0), "Squamish");
         assertEquals(p.getConnectTag().getTagItem(0),"2012");
     }

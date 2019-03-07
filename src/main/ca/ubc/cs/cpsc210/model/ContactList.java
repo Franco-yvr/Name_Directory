@@ -37,16 +37,16 @@ public class ContactList {
         return contactlist.size();
     }
 
-    // MODIFIES: this
-    // EFFECTS: Create new profile and adds it to the ContactList
-    public boolean addContact(String name, String description, String wheretag, String connecttag) {
-        if (name != "") {
-            Profile p = new Profile(name, description, wheretag, connecttag);
-            contactlist.add(p);
-            return true;
-        }
-        return false;
-    }
+//    // MODIFIES: this
+//    // EFFECTS: Create new profile and adds it to the ContactList
+//    public boolean addContact(String name, String description, String wheretag, String connecttag) {
+//        if (name != "") {
+//            Profile p = new Profile(name, description, wheretag, connecttag);
+//            contactlist.add(p);
+//            return true;
+//        }
+//        return false;
+//    }
 
     //REQUIRE: Contact list must not be empty
 //EFFECTS: Search one profile for the keywords entered in the user interface search box
