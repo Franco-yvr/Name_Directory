@@ -82,11 +82,10 @@ To be Fixed: Potentially remove redundant methods
                               -clean //reject piles of dismissed methods
 
 
-Next: Exceptions (add exception on profile -> name cannot be null)
+Next:
       Figure out how to display the results list made by searchResult
       Implement a main
       implement the test for json
-      install try catch for all exceptions intalled in the program
 
 
 Longer term:Learn JSON file
@@ -95,5 +94,6 @@ Longer term:Learn JSON file
             google how the equals and hashmap override works
             google how to save JSON data into a file in your computer
             start GUI
+            make tag makers more flexible because right now it is very prticular with spaces, @ signs, etc(i.e."@BigNose@OneEye@LongTeeth");
 
 

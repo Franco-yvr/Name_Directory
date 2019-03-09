@@ -4,6 +4,7 @@ import ca.ubc.cs.cpsc210.model.exceptions.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class ContactList {
@@ -37,6 +38,55 @@ public class ContactList {
         return contactlist.size();
     }
 
+    //REQUIRE: Contact list must not be empty
+//EFFECTS: Search one profile for the keywords entered in the user interface search box
+//in each the name, description, wheretag and connecttag. Return true is keyword is found
+//in one or more field.
+    private boolean searchProfile(Profile profile, String searched) {
+        if (profile.getName().contains(searched)
+                || profile.getDescription().contains(searched)
+                || profile.getWhereTag().searchTag(searched)
+                || profile.getConnectTag().searchTag(searched)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    //REQUIRE: Contact list must not be empty
+    //EFFECTS: Search the keywords entered in the user interface search box
+    // in each the name, description, wheretag and connecttag for each profile
+    // contained in ContactList
+    public List<Profile> searchResult(String searched) throws EmptyStringException {
+        if (searched.equals("")) {
+            throw new EmptyStringException("Entry must not be empty");
+        }
+        int i;
+        List<Profile> results = new ArrayList<>();
+        for (Profile profile : contactlist) {
+            if (searchProfile(profile, searched)) {
+                results.add(profile);
+            }
+        }
+        return results;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactList that = (ContactList) o;
+        return contactlist.equals(that.contactlist);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(contactlist);
+    }
+}
+
+//https://stackoverflow.com/questions/8180430/how-to-override-equals-method-in-java
+
 //    // MODIFIES: this
 //    // EFFECTS: Create new profile and adds it to the ContactList
 //    public boolean addContact(String name, String description, String wheretag, String connecttag) {
@@ -48,36 +98,10 @@ public class ContactList {
 //        return false;
 //    }
 
-    //REQUIRE: Contact list must not be empty
-//EFFECTS: Search one profile for the keywords entered in the user interface search box
-//in each the name, description, wheretag and connecttag. Return true is keyword is found
-//in one or more field.
-    private boolean searchProfile(int index, String searched) {
-        if (getContact(index).getName().contains(searched)
-                || getContact(index).getDescription().contains(searched)
-                || getContact(index).getWhereTag().searchTag(searched)
-                || getContact(index).getConnectTag().searchTag(searched)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-        //REQUIRE: Contact list must not be empty
-    //EFFECTS: Search the keywords entered in the user interface search box
-    // in each the name, description, wheretag and connecttag for each profile
-    // contained in ContactList
-    public List<Profile> searchResult(String searched) throws EmptyStringException {
-        if (searched.equals("")) {
-            throw new EmptyStringException("Entry must not be empty");
-        }
-        int i;
-        List<Profile> results = new ArrayList<>();
-        for (i = 0; i < contactlist.size(); i++) {
-            if (searchProfile(i, searched)) {
-                results.add(contactlist.get(i));
-            }
-        }
-        return results;
-    }
-}
+//        for (i = 0; i < contactlist.size(); i++) {
+//        if (searchProfile(i, searched)) {
+//        results.add(contactlist.get(i));
+//        }
+//        }
+//        return results;
+//        }

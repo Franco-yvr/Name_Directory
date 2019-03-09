@@ -1,15 +1,22 @@
 Tasks Done:
 -Completed Jsonifier and Parser
 -Made Name & Description as String and commented out tests
--Attempted to implement main to install the exceptions
+-Attempted to implement main
+-implemented exceptions and tests for exceptions
 -Set up the tests to be implemented
-
+-started the Jsonifier tests (.....)
+-Deleted addContact to reduce coupling
+-replaced forloop for foreachloop in contactlist
+-Implemented @override .equals & Hashmap for Profile
 
 Lessons learned:
 -Learned about casting
 -learned about JSON
 -improved understanding Apparent/actual type: compiler only sees the apparent type, need to cast appearance(The actual type of the variable a is A. There's no changing that)https://stackoverflow.com/questions/1514214/java-terminology-clarification
+-Realised that i will have to finish exception tasks before i can compile to run the test
 -Random bits of learnings
 
-Thursday
--Deleted addContact to reduce coupling
+todo
+jsnoifier test run
+w
+

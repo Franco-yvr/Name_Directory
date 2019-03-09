@@ -1,20 +1,19 @@
 package ca.ubc.cs.cpsc210.json;
-
 import ca.ubc.cs.cpsc210.model.ConnectTagList;
 import ca.ubc.cs.cpsc210.model.ContactList;
 import ca.ubc.cs.cpsc210.model.Profile;
 import ca.ubc.cs.cpsc210.model.WhereTagList;
+import ca.ubc.cs.cpsc210.model.exceptions.NameFieldEmptyException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class Parser {
 
     // EFFECTS: parses JSONArray represented by JSONContactList and return a non-JSON ContactList
-    public static ContactList jsonToContactList(String input) {
+    public static ContactList jsonToContactList(JSONArray ja) {
         ContactList contactlist = new ContactList();
-        JSONArray jsoncontactlist = new JSONArray(input); //takes input string and insert it into a JSONArray by block of Profile
 
-        for (Object jsonprofile : jsoncontactlist) {
+        for (Object jsonprofile : ja) {
             JSONObject castedjsonprofile = (JSONObject) jsonprofile;
             contactlist.add(jsonToProfile(castedjsonprofile));
         }
@@ -27,7 +26,12 @@ public class Parser {
         String description = p.getString("description");
         WhereTagList wheretaglist = jsonToWhereTaglist(p.getJSONArray("wheretaglist"));
         ConnectTagList connecttaglist = jsonToConnectTagList(p.getJSONArray("connecttaglist"));
-        Profile profile = new Profile(name, description, wheretaglist, connecttaglist);
+        Profile profile = null;
+        try {
+            profile = new Profile(name, description, wheretaglist, connecttaglist);
+        } catch (NameFieldEmptyException e) {
+            System.out.println("This profile could no be reconstructed because the name field is missing");
+        }
         return profile;
     }
 

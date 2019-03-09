@@ -28,16 +28,17 @@ public class Jsonifier {
     // EFFECTS: returns JSONArray representing a WhereTagList
     public static JSONArray whereTagToJson(WhereTagList wt) {
         JSONArray whereTagInJson = new JSONArray();
-        for (String t : wt.getTag()) {
+        for (String t : wt.getTaglist()) {
             whereTagInJson.put(t);
         }
+        //System.out.println(whereTagInJson);
         return whereTagInJson;
     }
 
     // EFFECTS: returns JSONArray representing a ConnectTagList
     public static JSONArray connectTagToJson(ConnectTagList ct) {
         JSONArray connectTagInJson = new JSONArray();
-        for (String t : ct.getTag()) {
+        for (String t : ct.getTaglist()) {
             connectTagInJson.put(t);
         }
         return connectTagInJson;
