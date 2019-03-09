@@ -49,16 +49,24 @@ public class TagList {
         return false;
     }
 
-    //EFFECTS: overrides the Object class so that the content can be compares rather than the memory location, Return true is keyword is found.
+    //EFFECTS: overrides the Object class so that the content
+    // can be compares rather than the memory location,
+    // Return true is keyword is found.
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof TagList)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof TagList)) {
+            return false;
+        }
         TagList tagList = (TagList) o;
         return taglist.equals(tagList.taglist);
     }
 
-    //EFFECTS: overrides the Object class so that the content can be compares rather than the memory location, Return true is keyword is found.
+    //EFFECTS: overrides the Object class so that the content
+    // can be compares rather than the memory location,
+    // Return true is keyword is found.
     @Override
     public int hashCode() {
         return Objects.hash(taglist);

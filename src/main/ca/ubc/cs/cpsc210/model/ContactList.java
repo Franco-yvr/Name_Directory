@@ -73,8 +73,12 @@ public class ContactList {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         ContactList that = (ContactList) o;
         return contactlist.equals(that.contactlist);
     }

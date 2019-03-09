@@ -4,11 +4,11 @@ import ca.ubc.cs.cpsc210.model.exceptions.*;
 import org.json.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static ca.ubc.cs.cpsc210.json.Jsonifier.*;
+import static ca.ubc.cs.cpsc210.json.Persistence.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-public class TestJsonifier {
+public class TestPersistence {
 
     private ContactList testcontactlist = new ContactList();
     private Profile testprofile;

@@ -10,7 +10,7 @@ public class ConnectTagList extends TagList {
 
     // MODIFIES: this
     // EFFECTS: Used in Parser: Construct a tag to be used as a ConnectTagList entry
-    public ConnectTagList(){
+    public ConnectTagList() {
         super();
     }
 }

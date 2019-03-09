@@ -31,7 +31,8 @@ public class Profile {
 
     //REQUIRE: Name field must not be null
     // MODIFIES: this
-    // EFFECTS: Used in the parser: Construct a profile that contains name, description, wheretaglist and connecttaglist fields
+    // EFFECTS: Used in the parser: Construct a profile that contains name,
+    // description, wheretaglist and connecttaglist fields
     public Profile(String name, String description, WhereTagList wheretaglist, ConnectTagList connecttaglist) throws
             NameFieldEmptyException {
         if (name == "") {
@@ -66,19 +67,30 @@ public class Profile {
         return connecttag;
     }
 
-    //EFFECTS: overrides the Object class so that the content can be compares rather than the memory location, Return true is keyword is found.
+    //EFFECTS: overrides the Object class so that the content
+    // can be compares rather than the memory location, Return
+    // true is keyword is found.
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Profile profile = (Profile) o;
-        return name.equals(profile.name) &&
-                description.equals(profile.description) &&
-                wheretag.equals(profile.wheretag) &&
+        return name.equals(profile.name)
+                &&
+                description.equals(profile.description)
+                &&
+                wheretag.equals(profile.wheretag)
+                &&
                 connecttag.equals(profile.connecttag);
     }
 
-    //EFFECTS: overrides the Object class so that the content can be compares rather than the memory location, Return true is keyword is found.
+    //EFFECTS: overrides the Object class so that the content
+    // can be compares rather than the memory location,
+    // Return true is keyword is found.
     @Override
     public int hashCode() {
         return Objects.hash(name, description, wheretag, connecttag);

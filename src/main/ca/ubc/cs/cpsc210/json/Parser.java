@@ -1,4 +1,5 @@
 package ca.ubc.cs.cpsc210.json;
+
 import ca.ubc.cs.cpsc210.model.ConnectTagList;
 import ca.ubc.cs.cpsc210.model.ContactList;
 import ca.ubc.cs.cpsc210.model.Profile;
@@ -21,7 +22,7 @@ public class Parser {
     }
 
     // EFFECTS: parses JSONObject represented by JSONProfile and return a non-JSON Profile
-    public static Profile jsonToProfile(JSONObject p){
+    public static Profile jsonToProfile(JSONObject p) {
         String name = p.getString("name");
         String description = p.getString("description");
         WhereTagList wheretaglist = jsonToWhereTaglist(p.getJSONArray("wheretaglist"));
@@ -35,7 +36,8 @@ public class Parser {
         return profile;
     }
 
-    // EFFECTS: Helper for ContactList: parses JSONArray represented by input as a WhereTagList and returns it in non-json
+    // EFFECTS: Helper for ContactList: parses JSONArray represented by input
+    // as a WhereTagList and returns it in non-json
     public static WhereTagList jsonToWhereTaglist(JSONArray ja) {
         WhereTagList wheretaglist = new WhereTagList();
         /// do not need to convert into an arraylist because it was packeaged and sent as array already
@@ -45,12 +47,13 @@ public class Parser {
         return wheretaglist;
     }
 
-    // EFFECTS: Helper for ContactList: parses JSONArray represented by input as a ConnectTagList and returns it in non-json
+    // EFFECTS: Helper for ContactList: parses JSONArray represented
+    // by input as a ConnectTagList and returns it in non-json
     public static ConnectTagList jsonToConnectTagList(JSONArray ja) {
-        ConnectTagList Connecttaglist = new ConnectTagList();
+        ConnectTagList connecttaglist = new ConnectTagList();
         for (Object jsontag : ja) {
-            Connecttaglist.addTag((String) jsontag);
+            connecttaglist.addTag((String) jsontag);
         }
-        return Connecttaglist;
+        return connecttaglist;
     }
 }

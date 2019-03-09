@@ -4,7 +4,7 @@ import ca.ubc.cs.cpsc210.model.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Jsonifier {
+public class Persistence {
 
     // EFFECTS: returns JSONArray representing a ContactList
     public static JSONArray contactListToJson(ContactList c) {
