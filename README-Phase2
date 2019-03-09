@@ -4,10 +4,11 @@ Tasks Done:
 -Attempted to implement main
 -implemented exceptions and tests for exceptions
 -Set up the tests to be implemented
--started the Jsonifier tests (.....)
 -Deleted addContact to reduce coupling
 -replaced forloop for foreachloop in contactlist
--Implemented @override .equals & Hashmap for Profile
+-Implemented @override .equals & Hashmap for ContactList, Profile and TagList
+-Implemented tests for Jsonifier and Parser
+-Implemented tests for Equals & Hashmap override
 
 Lessons learned:
 -Learned about casting
@@ -16,7 +17,5 @@ Lessons learned:
 -Realised that i will have to finish exception tasks before i can compile to run the test
 -Random bits of learnings
 
-todo
-jsnoifier test run
-w
+
 
