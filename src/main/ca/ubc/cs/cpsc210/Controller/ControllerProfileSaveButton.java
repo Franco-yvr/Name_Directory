@@ -15,13 +15,14 @@ import java.util.ResourceBundle;
 public class ControllerProfileSaveButton implements Initializable {
     @FXML
     private TextField nameField;
+    @FXML
     private TextField descriptionField;
+    @FXML
     private TextField whereTagField;
+    @FXML
     private TextField connectTagField;
-
     @FXML
     private Button profileSaveButton;
-
     @FXML
     public void saveButton(ActionEvent event) {
         String namefieldtext = nameField.getText();
