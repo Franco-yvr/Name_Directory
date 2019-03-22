@@ -12,9 +12,8 @@ import sun.rmi.runtime.NewThreadAction;
 import java.io.IOException;
 
 public class UserInterfacefx extends Application {
-    private Parent root = null;
-    public static Stage primaryStage;
 
+    private Parent root = null;
 
     public static void main(String[] args) {
         launch(args);
@@ -23,42 +22,15 @@ public class UserInterfacefx extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            root = FXMLLoader.load(getClass().getResource("SearchScene.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../FXML/SearchScene.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        this.primaryStage = primaryStage;
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-    }
-
-    // How to change scene -> UserInterfacefx.setScene(newScene)
-    public static void setScene(Scene scene) {
-        try {
-            primaryStage.setTitle("Memorizer");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        primaryStage.setTitle("Memorizer");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }
-
-//
-//        for loop\
-//        button item new button\
-//        add below to the obect display window,
-//                when start
-//        need to
-//        load the
-//        fmxl using
-//        fxml loader
-//        and set
-//        the scene
-//        to it
-//        inside bracket, then
-//        show it,
-//        innmain call launvh
-//
-//        add save to json at stop method
 

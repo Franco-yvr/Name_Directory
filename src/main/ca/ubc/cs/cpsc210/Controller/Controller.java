@@ -1,50 +1,66 @@
+
 package ca.ubc.cs.cpsc210.Controller;
 
 import ca.ubc.cs.cpsc210.model.ContactList;
 import ca.ubc.cs.cpsc210.model.Profile;
 import ca.ubc.cs.cpsc210.model.exceptions.EmptyStringException;
 import ca.ubc.cs.cpsc210.model.exceptions.NameFieldEmptyException;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-
-import static ca.ubc.cs.cpsc210.UI.UserInterfacefx.primaryStage;
-
 public class Controller implements Initializable {
 
     private Parent root = null;
     public ContactList originalcontactlist = new ContactList();
 
-    @FXML private TextField searchBox;
-    @FXML private TableColumn nameColumn;
-    @FXML private TableColumn descriptionColumn;
-    @FXML private TableColumn whereTagColumn;
-    @FXML private TableColumn connectTagColumn;
-    @FXML private TextField nameField;
-    @FXML private TextField descriptionField;
-    @FXML private TextField whereTagField;
-    @FXML private TextField connectTagField;
-    @FXML private Button profileSaveButton;
-    @FXML private Button searchTabButton;
-    @FXML private Button searchButton;
+    @FXML
+    private TextField searchBox;
+    @FXML
+    private TableColumn nameColumn;
+    @FXML
+    private TableColumn descriptionColumn;
+    @FXML
+    private TableColumn whereTagColumn;
+    @FXML
+    private TableColumn connectTagColumn;
+    @FXML
+    private TextField nameField;
+    @FXML
+    private TextField descriptionField;
+    @FXML
+    private TextField whereTagField;
+    @FXML
+    private TextField connectTagField;
+    @FXML
+    private Button profileSaveButton;
+
+    @FXML
+    private Tab searchTabButton;
+
+    @FXML
+    private Button saveButton;
+
+    @FXML
+    private Button searchButton;
+
+    @FXML
+    private TabPane tabPane;
 
     //MODIFIES: primaryStage
     // EFFECTS: return the scene associted with the profile tab
     @FXML
-    public void profileTabButton() {
+    public void profileTabButton(ActionEvent e) {
 //        try {
 //            root = FXMLLoader.load(getClass().getResource("SearchScene.fxml"));
 //        } catch (IOException e) {
@@ -57,7 +73,7 @@ public class Controller implements Initializable {
     //MODIFIES: primaryStage
     // EFFECTS: return the scene associted with the search tab
     @FXML
-    public void searchTabButton() {
+    public void searchTabButton(ActionEvent e) {
 //        try {
 //            root = FXMLLoader.load(getClass().getResource("SearchScene.fxml"));
 //        } catch (IOException e) {
@@ -70,7 +86,7 @@ public class Controller implements Initializable {
     @FXML
     //MODIFIES: ContactList
     // EFFECTS: Create a new Profile, adds profile to the user ContactList, clear the fields
-    public void saveButton() {
+    public void saveButton(ActionEvent e1) {
         String namefieldtext = nameField.getText();
         String descriptionfieldtext = descriptionField.getText();
         String wheretagfield = whereTagField.getText();
@@ -93,13 +109,13 @@ public class Controller implements Initializable {
     //          -List a complete visual list inside the table
     //          -erase the textfield
     @FXML
-    public void searchButton(TextField searchBox) {
+    public void searchButton(ActionEvent e) {
         String searched = searchBox.getText();
         List<Profile> listofresults = new ArrayList<>();
         try {
             listofresults = originalcontactlist.searchResult(searched);
-        } catch (EmptyStringException e) {
-            e.printStackTrace();
+        } catch (EmptyStringException e1) {
+            e1.printStackTrace();
         }
         displayList(listofresults);
         searchBox.clear();
