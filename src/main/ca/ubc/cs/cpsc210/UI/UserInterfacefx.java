@@ -1,16 +1,20 @@
 package ca.ubc.cs.cpsc210.UI;
 
+import ca.ubc.cs.cpsc210.model.ContactList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sun.rmi.runtime.NewThreadAction;
 
 
 import java.io.IOException;
 
 public class UserInterfacefx extends Application {
-    Parent root = null;
+    private Parent root = null;
+    public static Stage primaryStage;
+
 
     public static void main(String[] args) {
         launch(args);
@@ -18,14 +22,25 @@ public class UserInterfacefx extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
         try {
-            root = FXMLLoader.load(getClass().getResource("File.fxml"));
+            root = FXMLLoader.load(getClass().getResource("SearchScene.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
+        this.primaryStage = primaryStage;
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
+    }
+
+    // How to change scene -> UserInterfacefx.setScene(newScene)
+    public static void setScene(Scene scene) {
+        try {
+            primaryStage.setTitle("Memorizer");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 

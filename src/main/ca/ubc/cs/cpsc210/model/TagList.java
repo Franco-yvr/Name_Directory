@@ -40,13 +40,23 @@ public class TagList {
     //REQUIRE: TagList list must not be empty
     //EFFECTS: Search the taglist list for the keywords entered in the user interface search box.
     //Return true is keyword is found.
-    public boolean searchTag(String searched)  {
+    public boolean searchTag(String searched) {
         for (int i = 0; i < taglist.size(); i++) {
             if (taglist.get(i).contains(searched)) {
                 return true;
             }
         }
         return false;
+    }
+
+    //MODIFIES:this
+    //EFFECTS: Lays out a list of String into one long string separated with "@" for SearchTabButton
+    public String tagListConcatonation() {
+        String concatonatedstring = "";
+        for (String s : taglist) {
+            concatonatedstring.concat(s);
+        }
+        return concatonatedstring;
     }
 
     //EFFECTS: overrides the Object class so that the content
