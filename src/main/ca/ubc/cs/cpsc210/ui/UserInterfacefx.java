@@ -1,12 +1,10 @@
-package ca.ubc.cs.cpsc210.UI;
+package ca.ubc.cs.cpsc210.ui;
 
-import ca.ubc.cs.cpsc210.model.ContactList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import sun.rmi.runtime.NewThreadAction;
 
 
 import java.io.IOException;
@@ -32,5 +30,7 @@ public class UserInterfacefx extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+
 }
 

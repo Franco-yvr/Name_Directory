@@ -54,7 +54,7 @@ public class TagList {
     public String tagListConcatonation() {
         String concatonatedstring = "";
         for (String s : taglist) {
-            concatonatedstring.concat(s);
+            concatonatedstring = concatonatedstring.concat(s);
         }
         return concatonatedstring;
     }

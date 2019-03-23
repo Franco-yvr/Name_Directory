@@ -1,6 +1,8 @@
 package ca.ubc.cs.cpsc210.model;
 
 import ca.ubc.cs.cpsc210.model.exceptions.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,7 +64,8 @@ public class ContactList {
             throw new EmptyStringException("Entry must not be empty");
         }
         int i;
-        List<Profile> results = new ArrayList<>();
+//        List<Profile> results = new ArrayList<>();
+        ObservableList<Profile> results = FXCollections.observableArrayList();
         for (Profile profile : contactlist) {
             if (searchProfile(profile, searched)) {
                 results.add(profile);
