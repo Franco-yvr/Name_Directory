@@ -1,3 +1,6 @@
 TODO
 -modify everything to work with json files
 -implement tests
+-implement potential functionality to tell the user that the profile has been created
+-Find a nest for the Json file to save the data
+-test contenation

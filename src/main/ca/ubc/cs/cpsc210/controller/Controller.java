@@ -14,16 +14,25 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import ca.ubc.cs.cpsc210.json.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.net.URL;
 import java.util.*;
+
+import static ca.ubc.cs.cpsc210.json.Parser.*;
+import static ca.ubc.cs.cpsc210.json.Persistence.*;
+
 
 import static javafx.collections.FXCollections.observableArrayList;
 
 public class Controller implements Initializable {
 
     private Parent root = null;
-    private ContactList originalcontactlist = new ContactList();
+    private JSONArray originalcontactlist = new JSONArray();
+//    private ContactList originalcontactlist = new JSONArray();
+//            contactListToJson(new ContactList());
 
     @FXML
     private TextField searchBox;
@@ -63,6 +72,7 @@ public class Controller implements Initializable {
     //MODIFIES: ContactList
     // EFFECTS: Create a new Profile, adds profile to the user ContactList, clear the fields
     public void saveButton(ActionEvent e1) {
+        ContactList c = jsonToContactList(originalcontactlist);
         String namefieldtext = nameField.getText();
         String descriptionfieldtext = descriptionField.getText();
         String wheretagfield = whereTagField.getText();
@@ -70,20 +80,20 @@ public class Controller implements Initializable {
         Profile p;
         try {
             p = new Profile(namefieldtext, descriptionfieldtext, wheretagfield, connecttagfield);
-
-            originalcontactlist.add(p);
+            c.add(p);
         } catch (NameFieldEmptyException e) {
             e.printStackTrace();
         }
+        originalcontactlist = contactListToJson(c);
         nameField.clear();
         descriptionField.clear();
         whereTagField.clear();
         connectTagField.clear();
-        System.out.println("The Profile has been created");
+
+//        System.out.println("The Profile has been created"); ///
 //        Label label = new Label("Label");
 //        tabPane.setHalignment(label, HPos.CENTER);
 //        gridpane.add(label, 0, 0);
-        System.out.println(originalcontactlist.getContact(0).getName());
     }
 
     // EFFECTS: -Search the user's contact
@@ -91,14 +101,14 @@ public class Controller implements Initializable {
     //          -erase the textfield
     @FXML
     public void searchButton(ActionEvent e) {
+        ContactList c = jsonToContactList(originalcontactlist);
         String searched = searchBox.getText();
         ArrayList<Profile> searchResults = null;
         try {
-            searchResults = originalcontactlist.searchResult(searched);
+            searchResults = c.searchResult(searched);
         } catch (EmptyStringException e1) {
             e1.printStackTrace();
         }
-//        System.out.println(searchResults.get(0).getName());
         nameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("name"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("description"));
         whereTagColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("wheretags"));
