@@ -5,6 +5,7 @@ import ca.ubc.cs.cpsc210.model.ContactList;
 import ca.ubc.cs.cpsc210.model.Profile;
 import ca.ubc.cs.cpsc210.model.exceptions.EmptyStringException;
 import ca.ubc.cs.cpsc210.model.exceptions.NameFieldEmptyException;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,10 +18,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.*;
 
+import static javafx.collections.FXCollections.observableArrayList;
+
 public class Controller implements Initializable {
 
     private Parent root = null;
-    public ContactList originalcontactlist = new ContactList();
+    private ContactList originalcontactlist = new ContactList();
 
     @FXML
     private TextField searchBox;
@@ -47,7 +50,7 @@ public class Controller implements Initializable {
     private Button saveButton;
 
     @FXML
-    private TableView resultTable;
+    private TableView<Person> resultTable;
 
     @FXML
     private Button searchButton;
@@ -89,28 +92,31 @@ public class Controller implements Initializable {
     @FXML
     public void searchButton(ActionEvent e) {
         String searched = searchBox.getText();
-//        List<Profile> listofresults = new ArrayList<>();
-        List<Profile> searchResults = null;
-//        FXCollections.observableArrayList();
+        ArrayList<Profile> searchResults = null;
         try {
             searchResults = originalcontactlist.searchResult(searched);
         } catch (EmptyStringException e1) {
             e1.printStackTrace();
         }
-        System.out.println(searchResults.get(0).getName());
-//        displayList(listofresults);
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("Name"));
-        descriptionColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("Description"));
-        whereTagColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("WhereTag"));
-        connectTagColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("ConnectTag"));
-        resultTable = new TableView<Person>();
-        resultTable.setItems(displayTable(searchResults));
-//        resultTable.getColumns().addAll(nameColumn, descriptionColumn, whereTagColumn,connectTagColumn);
+//        System.out.println(searchResults.get(0).getName());
+        nameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("name"));
+        descriptionColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("description"));
+        whereTagColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("wheretags"));
+        connectTagColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("connecttags"));
+//        ObservableList<Person> data1 = observableArrayList(
+//                new Person("jacob","smart","van","tmw"));
+        ObservableList<Person> data = displayTable(searchResults);
+        resultTable.setItems(data);
+//        resultTable.setItems(data1);
+////        resultTable.getColumns().addAll(nameColumn, descriptionColumn, whereTagColumn,connectTagColumn);
         searchBox.clear();
     }
 
-    private ObservableList<Person> displayTable(List<Profile> searchresults) {
-        ObservableList<Person> tablelist = FXCollections.observableArrayList();
+    private ObservableList<Person> displayTable(ArrayList<Profile> searchresults) {
+//        ObservableList<Person> tablelist = observableArrayList();
+        ObservableList<Person> tablelist = observableArrayList();
+//        ObservableList<E> list = new observableArrayList();
+//        FXCollections.observableArrayList();
         for (Profile p : searchresults) {
             String name = p.getName();
             String description = p.getDescription();
@@ -149,35 +155,88 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
-    private class Person {
+    public class Person {
 
-        private String name;
-        private String description;
-        private String wheretags;
-        private String connecttags;
+//        private String name;
+//        private String description;
+//        private String wheretags;
+//        private String connecttags;
+
+        private final SimpleStringProperty name;
+        private final SimpleStringProperty description;
+        private final SimpleStringProperty wheretags;
+        private final SimpleStringProperty connecttags;
 
         private Person(String name, String description, String wheretags, String connecttags) {
-            this.name = name;
-            this.description = description;
-            this.wheretags = wheretags;
-            this.connecttags = connecttags;
+            this.name = new SimpleStringProperty(name);
+            ;
+            this.description = new SimpleStringProperty(description);
+            this.wheretags = new SimpleStringProperty(wheretags);
+            this.connecttags = new SimpleStringProperty(connecttags);
         }
 
         public String getName() {
+            return name.get();
+        }
+
+        public SimpleStringProperty nameProperty() {
             return name;
         }
 
         public String getDescription() {
+            return description.get();
+        }
+
+        public SimpleStringProperty descriptionProperty() {
             return description;
         }
 
         public String getWheretags() {
+            return wheretags.get();
+        }
+
+        public SimpleStringProperty wheretagsProperty() {
             return wheretags;
         }
 
         public String getConnecttags() {
+            return connecttags.get();
+        }
+
+        public SimpleStringProperty connecttagsProperty() {
             return connecttags;
         }
+
+        public void setName(String name) {
+            this.name.set(name);
+        }
+
+        public void setDescription(String description) {
+            this.description.set(description);
+        }
+
+        public void setWheretags(String wheretags) {
+            this.wheretags.set(wheretags);
+        }
+
+        public void setConnecttags(String connecttags) {
+            this.connecttags.set(connecttags);
+        }
+        //        public String getName() {
+//            return name;
+//        }
+//
+//        public String getDescription() {
+//            return description;
+//        }
+//
+//        public String getWheretags() {
+//            return wheretags;
+//        }
+//
+//        public String getConnecttags() {
+//            return connecttags;
+//        }
     }
 
 

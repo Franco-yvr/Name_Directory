@@ -54,9 +54,11 @@ public class TagList {
     public String tagListConcatonation() {
         String concatonatedstring = "";
         for (String s : taglist) {
-            concatonatedstring = concatonatedstring.concat(s);
+            concatonatedstring = concatonatedstring + "@" + s + " ";
         }
+        System.out.println(concatonatedstring);
         return concatonatedstring;
+
     }
 
     //EFFECTS: overrides the Object class so that the content

@@ -59,13 +59,14 @@ public class ContactList {
     //EFFECTS: Search the keywords entered in the user interface search box
     // in each the name, description, wheretag and connecttag for each profile
     // contained in ContactList
-    public List<Profile> searchResult(String searched) throws EmptyStringException {
+    public ArrayList<Profile> searchResult(String searched) throws EmptyStringException {
         if (searched.equals("")) {
             throw new EmptyStringException("Entry must not be empty");
         }
         int i;
 //        List<Profile> results = new ArrayList<>();
-        ObservableList<Profile> results = FXCollections.observableArrayList();
+        ArrayList<Profile> results = new ArrayList<Profile>();
+//        ObservableList<Profile> results = FXCollections.observableArrayList();
         for (Profile profile : contactlist) {
             if (searchProfile(profile, searched)) {
                 results.add(profile);
