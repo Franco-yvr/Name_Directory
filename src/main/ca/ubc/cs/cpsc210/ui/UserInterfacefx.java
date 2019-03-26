@@ -12,6 +12,7 @@ import java.io.IOException;
 public class UserInterfacefx extends Application {
 
     private Parent root = null;
+    private Stage stage = null;
 
     public static void main(String[] args) {
         launch(args);
@@ -24,11 +25,33 @@ public class UserInterfacefx extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        stage = primaryStage;
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Memorizer");
 //        primaryStage.setScene(scene);
         primaryStage.show();
+    }
+
+    public static void changeRoot(String fxmlfile) {
+//        try {
+//            root = FXMLLoader.load(getClass().getResource(fxmlfile));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(UserInterfacefx.class.getResource(fxmlfile));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 }
 

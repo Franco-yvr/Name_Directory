@@ -18,7 +18,7 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Session Entries" />
+                  <MenuItem fx:id="sessionentries" mnemonicParsing="false" onAction="#openSessionEntries" text="Session Entries" />
                </items></Menu>
         <Menu mnemonicParsing="false" text="Help" />
       </menus>

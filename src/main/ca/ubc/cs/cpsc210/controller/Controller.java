@@ -5,6 +5,7 @@ import ca.ubc.cs.cpsc210.model.ContactList;
 import ca.ubc.cs.cpsc210.model.Profile;
 import ca.ubc.cs.cpsc210.model.exceptions.EmptyStringException;
 import ca.ubc.cs.cpsc210.model.exceptions.NameFieldEmptyException;
+import ca.ubc.cs.cpsc210.ui.UserInterfacefx;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -76,6 +77,9 @@ public class Controller implements Initializable {
     private TabPane tabPane;
 
     @FXML
+    private MenuItem sessionentries;
+
+    @FXML
     //MODIFIES: ContactList
     // EFFECTS: Create a new Profile, adds profile to the user ContactList, clear the fields
     public void saveButton(ActionEvent e1) {
@@ -139,7 +143,11 @@ public class Controller implements Initializable {
         return tablelist;
     }
 
-    public void openSessionEntries(){
+    public void openSessionEntries(ActionEvent e) {
+        UserInterfacefx.changeRoot("../FXML/RecentEntryTable.fxml");
+        System.out.println("the table is called");
+//        RecentEntryController.recentEntryController();
+
 
 
     }
