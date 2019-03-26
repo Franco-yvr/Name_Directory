@@ -13,7 +13,6 @@ public class Parser {
     // EFFECTS: parses JSONArray represented by JSONContactList and return a non-JSON ContactList
     public static ContactList jsonToContactList(JSONArray ja) {
         ContactList contactlist = new ContactList();
-
         for (Object jsonprofile : ja) {
             JSONObject castedjsonprofile = (JSONObject) jsonprofile;
             contactlist.add(jsonToProfile(castedjsonprofile));

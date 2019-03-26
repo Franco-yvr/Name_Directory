@@ -29,10 +29,18 @@ import static javafx.collections.FXCollections.observableArrayList;
 
 public class Controller implements Initializable {
 
-    private Parent root = null;
-    private JSONArray originalcontactlist = new JSONArray();
-//    private ContactList originalcontactlist = new JSONArray();
-//            contactListToJson(new ContactList());
+    private Parent root;
+    private JSONArray originalcontactlist;
+
+    public Controller() {
+        root = null;
+        JSONArray arr = Persistence.readFromDisk();
+        if (arr == null) {
+            originalcontactlist = new JSONArray();
+        } else {
+            originalcontactlist = arr;
+        }
+    }
 
     @FXML
     private TextField searchBox;
@@ -67,7 +75,6 @@ public class Controller implements Initializable {
     @FXML
     private TabPane tabPane;
 
-
     @FXML
     //MODIFIES: ContactList
     // EFFECTS: Create a new Profile, adds profile to the user ContactList, clear the fields
@@ -85,6 +92,7 @@ public class Controller implements Initializable {
             e.printStackTrace();
         }
         originalcontactlist = contactListToJson(c);
+        writeToDisk(originalcontactlist);
         nameField.clear();
         descriptionField.clear();
         whereTagField.clear();
@@ -113,26 +121,17 @@ public class Controller implements Initializable {
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("description"));
         whereTagColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("wheretags"));
         connectTagColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("connecttags"));
-//        ObservableList<Person> data1 = observableArrayList(
-//                new Person("jacob","smart","van","tmw"));
         ObservableList<Person> data = displayTable(searchResults);
         resultTable.setItems(data);
-//        resultTable.setItems(data1);
-////        resultTable.getColumns().addAll(nameColumn, descriptionColumn, whereTagColumn,connectTagColumn);
         searchBox.clear();
     }
 
-    private ObservableList<Person> displayTable(ArrayList<Profile> searchresults) {
-//        ObservableList<Person> tablelist = observableArrayList();
+    public ObservableList<Person> displayTable(ArrayList<Profile> searchresults) {
         ObservableList<Person> tablelist = observableArrayList();
-//        ObservableList<E> list = new observableArrayList();
-//        FXCollections.observableArrayList();
         for (Profile p : searchresults) {
             String name = p.getName();
             String description = p.getDescription();
-            System.out.println(p.getDescription());
             String wheretag = p.getWhereTag().tagListConcatonation();
-            System.out.println(wheretag);
             String connecttag = p.getConnectTag().tagListConcatonation();
             Person person = new Person(name, description, wheretag, connecttag);
             tablelist.add(person);
@@ -179,7 +178,6 @@ public class Controller implements Initializable {
 
         private Person(String name, String description, String wheretags, String connecttags) {
             this.name = new SimpleStringProperty(name);
-            ;
             this.description = new SimpleStringProperty(description);
             this.wheretags = new SimpleStringProperty(wheretags);
             this.connecttags = new SimpleStringProperty(connecttags);
@@ -216,22 +214,22 @@ public class Controller implements Initializable {
         public SimpleStringProperty connecttagsProperty() {
             return connecttags;
         }
-
-        public void setName(String name) {
-            this.name.set(name);
-        }
-
-        public void setDescription(String description) {
-            this.description.set(description);
-        }
-
-        public void setWheretags(String wheretags) {
-            this.wheretags.set(wheretags);
-        }
-
-        public void setConnecttags(String connecttags) {
-            this.connecttags.set(connecttags);
-        }
+//
+//        public void setName(String name) {
+//            this.name.set(name);
+//        }
+//
+//        public void setDescription(String description) {
+//            this.description.set(description);
+//        }
+//
+//        public void setWheretags(String wheretags) {
+//            this.wheretags.set(wheretags);
+//        }
+//
+//        public void setConnecttags(String connecttags) {
+//            this.connecttags.set(connecttags);
+//        }
         //        public String getName() {
 //            return name;
 //        }

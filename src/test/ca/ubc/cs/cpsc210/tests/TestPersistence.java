@@ -58,4 +58,14 @@ public class TestPersistence {
         assertEquals(data.getString(1),"SanFrancisco");
         assertEquals(data.getString(2),"Portland");
     }
+
+    @Test
+    public void readFromDisk(){
+
+    }
+
+    @Test
+    public void readFile(){
+
+    }
 }

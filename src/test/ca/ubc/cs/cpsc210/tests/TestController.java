@@ -23,10 +23,25 @@ public class TestController {
         originalcontactlist.add(testprofile);
         originalcontactlist.add(testprofile2);
     }
-    @Test
-    private void testSearchButton() {
-//        searchButton()
 
+    @Test
+    public void testController(){
+//        Controller
+
+    }
+
+    @Test
+    public void testSaveButton(){
+
+    }
+
+    @Test
+    public void testSearchButton(){
+
+    }
+
+        @Test
+    public void testDisplayTable(){
 
     }
 }
