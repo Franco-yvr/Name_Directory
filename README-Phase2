@@ -16,6 +16,9 @@ Lessons learned:
 -improved understanding Apparent/actual type: compiler only sees the apparent type, need to cast appearance(The actual type of the variable a is A. There's no changing that)https://stackoverflow.com/questions/1514214/java-terminology-clarification
 -Realised that i will have to finish exception tasks before i can compile to run the test
 -Random bits of learnings
+-this was useful: https://docs.oracle.com/javafx/2/ui_controls/table-view.htm
+-check out css for making things nicer, javascrip, html
+
 
 
 

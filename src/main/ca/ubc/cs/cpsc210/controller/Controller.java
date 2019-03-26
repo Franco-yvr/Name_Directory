@@ -139,6 +139,10 @@ public class Controller implements Initializable {
         return tablelist;
     }
 
+    public void openSessionEntries(){
+
+
+    }
     //MODIFIES: scene
     // EFFECTS: displays the search result to the table in Search tab
 //    private void displayList(List<Profile> listofresults) {

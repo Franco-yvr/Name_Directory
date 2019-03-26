@@ -3,8 +3,9 @@ package ca.ubc.cs.cpsc210.model;
 import org.junit.platform.commons.util.CollectionUtils;
 
 import java.util.*;
+import java.util.function.Consumer;
 
-public class TagList {
+public class TagList implements Iterable<String> {
 
     private List<String> taglist;
 
@@ -82,6 +83,30 @@ public class TagList {
     @Override
     public int hashCode() {
         return Objects.hash(taglist);
+    }
+
+
+    @Override
+    public Iterator<String> iterator() {
+        return new TagListIterator();
+    }
+
+    private class TagListIterator implements Iterator<String> {
+
+        private Iterator<String> taglistiterator = taglist.iterator(); //created iterator here
+
+        @Override
+        public boolean hasNext() {
+            return taglistiterator.hasNext(); //check if iterator pointer has a next element
+        }
+
+        @Override
+        public String next() {
+            if (!taglistiterator.hasNext()) {
+                throw new NoSuchElementException();
+            }
+            return taglistiterator.next();
+        }
     }
 
     //    @Override

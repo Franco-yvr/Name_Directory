@@ -4,12 +4,10 @@ import ca.ubc.cs.cpsc210.model.exceptions.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 
-public class ContactList {
+public class ContactList implements Iterable<Profile> {
 
     private List<Profile> contactlist;
 
@@ -91,7 +89,31 @@ public class ContactList {
     public int hashCode() {
         return Objects.hash(contactlist);
     }
+
+    @Override
+    public Iterator<Profile> iterator() {
+        return new ContactListIterator();
+    }
+
+    private class ContactListIterator implements Iterator<Profile> {
+
+        private Iterator<Profile> contactlistiterator = contactlist.iterator();
+
+        @Override
+        public boolean hasNext() {
+            return contactlistiterator.hasNext();
+        }
+
+        @Override
+        public Profile next() {
+            if (!contactlistiterator.hasNext()) {
+                throw new NoSuchElementException();
+            }
+            return contactlistiterator.next();
+        }
+    }
 }
+
 
 //https://stackoverflow.com/questions/8180430/how-to-override-equals-method-in-java
 

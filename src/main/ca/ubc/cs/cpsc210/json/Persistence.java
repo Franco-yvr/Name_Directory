@@ -9,13 +9,16 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.function.Consumer;
 
 public class Persistence {
 
     // EFFECTS: returns JSONArray representing a ContactList
     public static JSONArray contactListToJson(ContactList c) {
         JSONArray contactListInJson = new JSONArray();
-        for (Profile p : c.getContactList()) {
+        for (Profile p : c) {
             contactListInJson.put(profileToJson(p));
         }
         return contactListInJson;
@@ -34,7 +37,7 @@ public class Persistence {
     // EFFECTS: returns JSONArray representing a WhereTagList
     public static JSONArray whereTagToJson(WhereTagList wt) {
         JSONArray whereTagInJson = new JSONArray();
-        for (String t : wt.getTaglist()) {
+        for (String t : wt) {
             whereTagInJson.put(t);
         }
         //System.out.println(whereTagInJson);
@@ -44,7 +47,7 @@ public class Persistence {
     // EFFECTS: returns JSONArray representing a ConnectTagList
     public static JSONArray connectTagToJson(ConnectTagList ct) {
         JSONArray connectTagInJson = new JSONArray();
-        for (String t : ct.getTaglist()) {
+        for (String t : ct) {
             connectTagInJson.put(t);
         }
         return connectTagInJson;
@@ -81,3 +84,7 @@ public class Persistence {
         }
     }
 }
+
+//need to implement iterator for contactListToJson(type:ContactList),
+//                                  whereTagToJson(type:WhereTagList),
+//                                  connectTagToJson(type:ConnectTagList
