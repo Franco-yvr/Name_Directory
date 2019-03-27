@@ -33,5 +33,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="opentest4j-1.1.1" level="project" />
   </component>
 </module>

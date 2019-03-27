@@ -45,6 +45,11 @@ public class Controller implements Initializable {
         addObserver(dummy);
     }
 
+//    public static void emptyEntireList(ContactList contactList) {
+//        contactList.remove(contactList.getContact(0));
+////        emptyEntireList(c);
+//    }
+
     @FXML
     private TextField searchBox;
     @FXML
@@ -95,7 +100,9 @@ public class Controller implements Initializable {
             p = new Profile(namefieldtext, descriptionfieldtext, wheretagfield, connecttagfield);
             c.add(p);
         } catch (NameFieldEmptyException e) {
-            e.printStackTrace();
+//            e.printStackTrace();// TODO: implement a pop up window to educate user
+            System.out.println("Exception thrown in Profile and Caught in Controller because namefield was empty");
+            return;
         }
         originalcontactlist = contactListToJson(c);
         writeToDisk(originalcontactlist);
@@ -118,7 +125,9 @@ public class Controller implements Initializable {
         try {
             searchResults = c.searchResult(searched);
         } catch (EmptyStringException e1) {
-            e1.printStackTrace();
+//            e1.printStackTrace(); // TODO: implement a pop up window to educate user
+            System.out.println("Exception thrown in ContactList and Caught in Controller because search box was empty");
+            return;
         }
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
@@ -134,6 +143,7 @@ public class Controller implements Initializable {
 //              Return the Observable list for searchButton to use to display
     public ObservableList<Person> displayTable(ArrayList<Profile> searchresults) {
         ObservableList<Person> tablelist = observableArrayList();
+        System.out.println("this");
         for (Profile p : searchresults) {
             String name = p.getName();
             String description = p.getDescription();
@@ -147,12 +157,12 @@ public class Controller implements Initializable {
 
     //     EFFECTS: Implements openSessionEntries button under "file" in the user Interface
 //                  helper for changeroot method in the UI runner
-//                  Calls recent entry method in ObserverPatternDummy as part of Observer Pattern implementation
-    @FXML
-    public void openSessionEntries(ActionEvent e) {
-        UserInterfacefx.changeRoot("../FXML/RecentEntryTable.fxml");
-        dummy.recentEntry();
-    }
+////                  Calls recent entry method in ObserverPatternDummy as part of Observer Pattern implementation
+//    @FXML
+//    public void openSessionEntries(ActionEvent e) {
+//        UserInterfacefx.changeRoot("../FXML/RecentEntryTable.fxml");
+//        dummy.recentEntry();
+//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

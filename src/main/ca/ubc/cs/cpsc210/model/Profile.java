@@ -16,7 +16,7 @@ public class Profile extends Observable {
     // MODIFIES: this
     // EFFECTS: Construct a profile that contains name, description, wheretag and connecttag fields
     public Profile(String name, String description, String wheretag, String connecttag) throws NameFieldEmptyException {
-        if (name == "") {
+        if (name.isEmpty()) {
             throw new NameFieldEmptyException("Name field must be filled to create the profile");
         } else {
             this.name = name;

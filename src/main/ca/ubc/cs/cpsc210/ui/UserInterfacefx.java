@@ -29,7 +29,6 @@ public class UserInterfacefx extends Application {
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Memorizer");
-//        primaryStage.setScene(scene);
         primaryStage.show();
     }
 

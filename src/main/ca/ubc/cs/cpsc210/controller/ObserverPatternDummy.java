@@ -1,6 +1,7 @@
 package ca.ubc.cs.cpsc210.controller;
 
 import ca.ubc.cs.cpsc210.observer.Observer;
+import ca.ubc.cs.cpsc210.ui.UserInterfacefx;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
@@ -24,12 +25,13 @@ public class ObserverPatternDummy implements Observer {
 
     public ObserverPatternDummy() { }
 
-    public  void recentEntry() {
-//        recententrynamecolumn.setItems(displaylist);
-    }
+//    public  void recentEntry() {
+////        recententrynamecolumn.setItems(displaylist);
+//    }
 
     @Override
     public void update(String newprofilename) {
-        displaylist.add(newprofilename);
+        UserInterfacefx.changeRoot("../FXML/RecentEntryTable.fxml");
+//        displaylist.add(newprofilename);
     }
 }

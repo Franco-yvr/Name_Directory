@@ -28,6 +28,12 @@ public class ContactList implements Iterable<Profile> {
         contactlist.add(profile);
     }
 
+    //MODIFIES: this
+    // EFFECTS: remove item from the list
+    public void remove(Profile profile) {
+        contactlist.remove(profile);
+    }
+
     // EFFECTS: obtain item to the list
     public Profile getContact(int index) {
         return contactlist.get(index);
@@ -38,7 +44,7 @@ public class ContactList implements Iterable<Profile> {
         return contactlist.size();
     }
 
-//EFFECTS: Search one profile for the keywords entered in the user interface search box
+    //EFFECTS: Search one profile for the keywords entered in the user interface search box
 //in each the name, description, wheretag and connecttag. Return true is keyword is found
 //in one or more field.
     private boolean searchProfile(Profile profile, String searched) {
