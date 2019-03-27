@@ -105,7 +105,7 @@ public class Controller implements Initializable {
         connectTagField.clear();
     }
 
-    // EFFECTS: Convert JSONContctlist
+    // EFFECTS: Convert JSONContactlist
 //              Create a list of search results
 //              Send list to the person class constructor to ready for display on TableView
 //              Display in TableView
@@ -120,10 +120,10 @@ public class Controller implements Initializable {
         } catch (EmptyStringException e1) {
             e1.printStackTrace();
         }
-        nameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("name"));
-        descriptionColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("description"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
         whereTagColumn.setCellValueFactory(new PropertyValueFactory<>("wheretags"));
-        connectTagColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("connecttags"));
+        connectTagColumn.setCellValueFactory(new PropertyValueFactory<>("connecttags"));
         ObservableList<Person> data = displayTable(searchResults);
         resultTable.setItems(data);
         searchBox.clear();
