@@ -86,9 +86,10 @@ public class Controller implements Initializable {
     @FXML
     private MenuItem sessionentries;
 
-    @FXML
+
     //MODIFIES: ContactList
     // EFFECTS: Create a new Profile, adds profile to the user ContactList, clear the fields
+    @FXML
     public void saveButton(ActionEvent e1) {
         ContactList c = jsonToContactList(originalcontactlist);
         String namefieldtext = nameField.getText();
@@ -100,8 +101,7 @@ public class Controller implements Initializable {
             p = new Profile(namefieldtext, descriptionfieldtext, wheretagfield, connecttagfield);
             c.add(p);
         } catch (NameFieldEmptyException e) {
-//            e.printStackTrace();// TODO: implement a pop up window to educate user
-            System.out.println("Exception thrown in Profile and Caught in Controller because namefield was empty");
+//            System.out.println("Exception thrown in Profile and Caught in Controller because namefield was empty");
             return;
         }
         originalcontactlist = contactListToJson(c);
@@ -125,8 +125,7 @@ public class Controller implements Initializable {
         try {
             searchResults = c.searchResult(searched);
         } catch (EmptyStringException e1) {
-//            e1.printStackTrace(); // TODO: implement a pop up window to educate user
-            System.out.println("Exception thrown in ContactList and Caught in Controller because search box was empty");
+//            System.out.println("Exception thrown in ContactList & Caught in Controller because search box was empty");
             return;
         }
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
