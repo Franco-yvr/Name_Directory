@@ -61,12 +61,15 @@ public class TestPersistence {
 
     @Test
     public void readFromDisk(){
-
-
+//        Told by 2 TAs at 7h15pm on March 26 2019 that controller Class and anything to do with UI
+//        is not necessary to test due to the difficulty of working around textfields and database,
+//        especilly that it is very visible whether a functionality works or not
     }
 
     @Test
     public void readFile(){
-
+//        Told by 2 TAs at 7h15pm on March 26 2019 that controller Class and anything to do with UI
+//        is not necessary to test due to the difficulty of working around textfields and database,
+//        especilly that it is very visible whether a functionality works or not
     }
 }

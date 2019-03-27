@@ -48,13 +48,13 @@ public class Controller implements Initializable {
     @FXML
     private TextField searchBox;
     @FXML
-    private TableColumn nameColumn;
+    private TableColumn<Person, String> nameColumn;
     @FXML
-    private TableColumn descriptionColumn;
+    private TableColumn<Person, String> descriptionColumn;
     @FXML
     private TableColumn<Person, String> whereTagColumn;
     @FXML
-    private TableColumn connectTagColumn;
+    private TableColumn<Person, String> connectTagColumn;
     @FXML
     private TextField nameField;
     @FXML
@@ -103,16 +103,13 @@ public class Controller implements Initializable {
         descriptionField.clear();
         whereTagField.clear();
         connectTagField.clear();
-
-//        System.out.println("The Profile has been created"); ///
-//        Label label = new Label("Label");
-//        tabPane.setHalignment(label, HPos.CENTER);
-//        gridpane.add(label, 0, 0);
     }
 
-    // EFFECTS: -Search the user's contact
-    //          -List a complete visual list inside the table
-    //          -erase the textfield
+    // EFFECTS: Convert JSONContctlist
+//              Create a list of search results
+//              Send list to the person class constructor to ready for display on TableView
+//              Display in TableView
+//              Erase the textfield
     @FXML
     public void searchButton(ActionEvent e) {
         ContactList c = jsonToContactList(originalcontactlist);
@@ -132,6 +129,9 @@ public class Controller implements Initializable {
         searchBox.clear();
     }
 
+    // EFFECTS: Convert the ArrayList into Observable List
+//              Flatten the WhereTag and ConnectTag list into a string
+//              Return the Observable list for searchButton to use to display
     public ObservableList<Person> displayTable(ArrayList<Profile> searchresults) {
         ObservableList<Person> tablelist = observableArrayList();
         for (Profile p : searchresults) {
@@ -145,44 +145,21 @@ public class Controller implements Initializable {
         return tablelist;
     }
 
+    //     EFFECTS: Implements openSessionEntries button under "file" in the user Interface
+//                  helper for changeroot method in the UI runner
+//                  Calls recent entry method in ObserverPatternDummy as part of Observer Pattern implementation
     @FXML
     public void openSessionEntries(ActionEvent e) {
         UserInterfacefx.changeRoot("../FXML/RecentEntryTable.fxml");
-//        UserInterfacefx.changeRoot("../FXML/ListView.fxml");
         dummy.recentEntry();
     }
-
-    //MODIFIES: scene
-    // EFFECTS: displays the search result to the table in Search tab
-//    private void displayList(List<Profile> listofresults) {
-//        List<String> listofnames = new ArrayList();
-//        List<String> listofdescriptions = new ArrayList();
-//        List<String> listofwheretags = new ArrayList();
-//        List<String> listofconnecttags = new ArrayList();
-//        for (Profile p : listofresults) {
-//            nameColumn.getColumns().add(p.getName());
-//            descriptionColumn.getColumns().add(p.getDescription());
-//            whereTagColumn.getColumns().add(p.getWhereTag().tagListConcatonation());
-//            connectTagColumn.getColumns().add(p.getConnectTag().tagListConcatonation());
-//        }
-//
-//        nameColumn.getColumns().
-//                resultTable.refresh();
-//
-//docs.oracle.com/javafx/2/ui_controls/table-view.htm
-
-//    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
 
+    //    EFFECT: Constructor for making profiles into SimpleStringProperty and utilise TableView
     public class Person {
-
-//        private String name;
-//        private String description;
-//        private String wheretags;
-//        private String connecttags;
 
         private final SimpleStringProperty name;
         private final SimpleStringProperty description;
@@ -200,9 +177,9 @@ public class Controller implements Initializable {
             return name.get();
         }
 
-        public SimpleStringProperty nameProperty() {
-            return name;
-        }
+//        public SimpleStringProperty nameProperty() {
+//            return name;
+//        }
 
         public String getDescription() {
             return description.get();
@@ -227,65 +204,6 @@ public class Controller implements Initializable {
         public SimpleStringProperty connecttagsProperty() {
             return connecttags;
         }
-//
-//        public void setName(String name) {
-//            this.name.set(name);
-//        }
-//
-//        public void setDescription(String description) {
-//            this.description.set(description);
-//        }
-//
-//        public void setWheretags(String wheretags) {
-//            this.wheretags.set(wheretags);
-//        }
-//
-//        public void setConnecttags(String connecttags) {
-//            this.connecttags.set(connecttags);
-//        }
-        //        public String getName() {
-//            return name;
-//        }
-//
-//        public String getDescription() {
-//            return description;
-//        }
-//
-//        public String getWheretags() {
-//            return wheretags;
-//        }
-//
-//        public String getConnecttags() {
-//            return connecttags;
-//        }
     }
-
-
 }
-
-//    //MODIFIES: primaryStage
-//    // EFFECTS: return the scene associted with the profile tab
-//    @FXML
-//    public void profileTabButton(ActionEvent e) {
-////        try {
-////            root = FXMLLoader.load(getClass().getResource("SearchScene.fxml"));
-////        } catch (IOException e) {
-////            e.printStackTrace();
-////        }
-////        Scene scene = new Scene(root);
-////        primaryStage.setScene(scene);
-//    }
-//
-//    //MODIFIES: primaryStage
-//    // EFFECTS: return the scene associted with the search tab
-//    @FXML
-//    public void searchTabButton(ActionEvent e) {
-////        try {
-////            root = FXMLLoader.load(getClass().getResource("SearchScene.fxml"));
-////        } catch (IOException e) {
-////            e.printStackTrace();
-////        }
-////        Scene scene = new Scene(root);
-////        primaryStage.setScene(scene);
-//    }
 

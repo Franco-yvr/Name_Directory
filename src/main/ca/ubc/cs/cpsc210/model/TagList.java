@@ -1,9 +1,6 @@
 package ca.ubc.cs.cpsc210.model;
 
-import org.junit.platform.commons.util.CollectionUtils;
-
 import java.util.*;
-import java.util.function.Consumer;
 
 public class TagList implements Iterable<String> {
 
@@ -38,7 +35,6 @@ public class TagList implements Iterable<String> {
         return taglist.get(index);
     }
 
-    //REQUIRE: TagList list must not be empty
     //EFFECTS: Search the taglist list for the keywords entered in the user interface search box.
     //Return true is keyword is found.
     public boolean searchTag(String searched) {
@@ -50,16 +46,13 @@ public class TagList implements Iterable<String> {
         return false;
     }
 
-    //MODIFIES:this
     //EFFECTS: Lays out a list of String into one long string separated with "@" for SearchTabButton
     public String tagListConcatonation() {
         String concatonatedstring = "";
         for (String s : taglist) {
             concatonatedstring = concatonatedstring + "@" + s + " ";
         }
-        System.out.println(concatonatedstring);
         return concatonatedstring;
-
     }
 
     //EFFECTS: overrides the Object class so that the content
@@ -108,19 +101,4 @@ public class TagList implements Iterable<String> {
             return taglistiterator.next();
         }
     }
-
-    //    @Override
-//    public Iterator<String> iterator() {
-//        return taglist.iterator();
-//    }
 }
-
-//implements Iterable<String>
-//    public TagList<Tag>(String longstring){
-//        Iterable<T> tagList = new ArrayList<>(Arrays.asList(longstring.split("@")));
-//        public Tag taglist;
-//"implement the list interface"
-
-// Utilises CollectionUtils.isEqualCollection to compare the fields that are lists:
-// public static boolean isEqualCollection(java.util.Collection a, java.util.Collection b) in CollectionUtils library
-//       return CollectionUtils.isEqualCollection(taglist, tagList.getTaglist());

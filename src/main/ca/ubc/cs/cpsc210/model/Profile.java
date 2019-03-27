@@ -1,13 +1,8 @@
 package ca.ubc.cs.cpsc210.model;
 
-
 import ca.ubc.cs.cpsc210.model.exceptions.NameFieldEmptyException;
 import ca.ubc.cs.cpsc210.observer.Observable;
-import org.junit.platform.commons.util.CollectionUtils;
-
-import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Observer;
 
 public class Profile extends Observable {
 
@@ -32,7 +27,7 @@ public class Profile extends Observable {
         }
     }
 
-    //REQUIRE: Name field must not be null
+
     // MODIFIES: this
     // EFFECTS: Used in the parser: Construct a profile that contains name,
     // description, wheretaglist and connecttaglist fields
@@ -99,7 +94,3 @@ public class Profile extends Observable {
         return Objects.hash(name, description, wheretag, connecttag);
     }
 }
-
-
-//new Name(name);
-//new Description(description);

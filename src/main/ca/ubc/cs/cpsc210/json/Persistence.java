@@ -7,11 +7,7 @@ import org.json.JSONObject;
 import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.function.Consumer;
 
 public class Persistence {
 
@@ -52,12 +48,8 @@ public class Persistence {
         }
         return connectTagInJson;
     }
-//
-//    //EFFECTS: Just add a new profile to the current JSONContactList
-//    public static JSONObject addJSONProfileToJSONContactList(Profile p){
-//        WHERE-THE-CONTACT-LIST-IS-STORED.put(profileToJson(p));
-//    }
 
+    //    EFFECTS: Fetch the contact list from the disk
     public static JSONArray readFromDisk() {
         try {
             String str = readFile("./contacts.json", Charset.defaultCharset());
@@ -68,11 +60,13 @@ public class Persistence {
         }
     }
 
+    //    EFFECTS: Read encoded file from
     private static String readFile(String path, Charset encoding) throws IOException {
         byte[] encoded = Files.readAllBytes(Paths.get(path));
         return new String(encoded, encoding);
     }
 
+    //    EFFECTS:Save the JSON file to the disk
     public static void writeToDisk(JSONArray jsonArray) {
         String str = jsonArray.toString();
         // then write that String to disk inside a .json file
@@ -84,7 +78,3 @@ public class Persistence {
         }
     }
 }
-
-//need to implement iterator for contactListToJson(type:ContactList),
-//                                  whereTagToJson(type:WhereTagList),
-//                                  connectTagToJson(type:ConnectTagList

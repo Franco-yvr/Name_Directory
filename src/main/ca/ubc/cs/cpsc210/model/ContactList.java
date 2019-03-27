@@ -38,7 +38,6 @@ public class ContactList implements Iterable<Profile> {
         return contactlist.size();
     }
 
-    //REQUIRE: Contact list must not be empty
 //EFFECTS: Search one profile for the keywords entered in the user interface search box
 //in each the name, description, wheretag and connecttag. Return true is keyword is found
 //in one or more field.
@@ -53,7 +52,6 @@ public class ContactList implements Iterable<Profile> {
         }
     }
 
-    //REQUIRE: Contact list must not be empty
     //EFFECTS: Search the keywords entered in the user interface search box
     // in each the name, description, wheretag and connecttag for each profile
     // contained in ContactList
@@ -61,10 +59,7 @@ public class ContactList implements Iterable<Profile> {
         if (searched.equals("")) {
             throw new EmptyStringException("Entry must not be empty");
         }
-        int i;
-//        List<Profile> results = new ArrayList<>();
         ArrayList<Profile> results = new ArrayList<Profile>();
-//        ObservableList<Profile> results = FXCollections.observableArrayList();
         for (Profile profile : contactlist) {
             if (searchProfile(profile, searched)) {
                 results.add(profile);
@@ -113,25 +108,3 @@ public class ContactList implements Iterable<Profile> {
         }
     }
 }
-
-
-//https://stackoverflow.com/questions/8180430/how-to-override-equals-method-in-java
-
-//    // MODIFIES: this
-//    // EFFECTS: Create new profile and adds it to the ContactList
-//    public boolean addContact(String name, String description, String wheretag, String connecttag) {
-//        if (name != "") {
-//            Profile p = new Profile(name, description, wheretag, connecttag);
-//            contactlist.add(p);
-//            return true;
-//        }
-//        return false;
-//    }
-
-//        for (i = 0; i < contactlist.size(); i++) {
-//        if (searchProfile(i, searched)) {
-//        results.add(contactlist.get(i));
-//        }
-//        }
-//        return results;
-//        }

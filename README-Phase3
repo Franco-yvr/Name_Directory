@@ -1,6 +1,16 @@
-TODO
--modify everything to work with json files
--implement tests
--implement potential functionality to tell the user that the profile has been created
--Find a nest for the Json file to save the data
--test contenation
+Implemented:
+Practice Composite pattern
+Dummy Observer Pattern
+Iterator Pattern
+Learned, constructed and implemented of GUI from Scratch in JAVAFX,
+Implemented JavaFX Interface and Controller 100% functional
+Created a new scene with implementation to tell user at the end of every session, that search profiles called by name were saved
+Implemented ability to save the data on computer disk and retrieve data from computer disk
+Learned to debug
+Cleaned up the files
+Adressed every Phase 1 feedback from professor
+
+
+
+
+
