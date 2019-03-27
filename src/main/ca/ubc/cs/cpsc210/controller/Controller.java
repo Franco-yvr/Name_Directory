@@ -7,7 +7,6 @@ import ca.ubc.cs.cpsc210.model.exceptions.EmptyStringException;
 import ca.ubc.cs.cpsc210.model.exceptions.NameFieldEmptyException;
 import ca.ubc.cs.cpsc210.ui.UserInterfacefx;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,7 +16,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ca.ubc.cs.cpsc210.json.*;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.net.URL;
 import java.util.*;
@@ -26,12 +24,14 @@ import static ca.ubc.cs.cpsc210.json.Parser.*;
 import static ca.ubc.cs.cpsc210.json.Persistence.*;
 
 
+import static ca.ubc.cs.cpsc210.observer.Observable.addObserver;
 import static javafx.collections.FXCollections.observableArrayList;
 
 public class Controller implements Initializable {
 
     private Parent root;
     private JSONArray originalcontactlist;
+    private ObserverPatternDummy dummy;
 
     public Controller() {
         root = null;
@@ -41,6 +41,8 @@ public class Controller implements Initializable {
         } else {
             originalcontactlist = arr;
         }
+        dummy = new ObserverPatternDummy();
+        addObserver(dummy);
     }
 
     @FXML
@@ -50,7 +52,7 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn descriptionColumn;
     @FXML
-    private TableColumn whereTagColumn;
+    private TableColumn<Person, String> whereTagColumn;
     @FXML
     private TableColumn connectTagColumn;
     @FXML
@@ -123,7 +125,7 @@ public class Controller implements Initializable {
         }
         nameColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("name"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("description"));
-        whereTagColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("wheretags"));
+        whereTagColumn.setCellValueFactory(new PropertyValueFactory<>("wheretags"));
         connectTagColumn.setCellValueFactory(new PropertyValueFactory<Person, String>("connecttags"));
         ObservableList<Person> data = displayTable(searchResults);
         resultTable.setItems(data);
@@ -143,14 +145,13 @@ public class Controller implements Initializable {
         return tablelist;
     }
 
+    @FXML
     public void openSessionEntries(ActionEvent e) {
         UserInterfacefx.changeRoot("../FXML/RecentEntryTable.fxml");
-        System.out.println("the table is called");
-//        RecentEntryController.recentEntryController();
-
-
-
+//        UserInterfacefx.changeRoot("../FXML/ListView.fxml");
+        dummy.recentEntry();
     }
+
     //MODIFIES: scene
     // EFFECTS: displays the search result to the table in Search tab
 //    private void displayList(List<Profile> listofresults) {

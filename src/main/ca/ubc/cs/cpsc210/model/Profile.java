@@ -2,12 +2,14 @@ package ca.ubc.cs.cpsc210.model;
 
 
 import ca.ubc.cs.cpsc210.model.exceptions.NameFieldEmptyException;
+import ca.ubc.cs.cpsc210.observer.Observable;
 import org.junit.platform.commons.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.Observer;
 
-public class Profile {
+public class Profile extends Observable {
 
     private String name;
     private String description;
@@ -26,6 +28,7 @@ public class Profile {
             this.description = description;
             this.wheretag = new WhereTagList(wheretag);
             this.connecttag = new ConnectTagList(connecttag);
+            notifyObserver(name);
         }
     }
 
