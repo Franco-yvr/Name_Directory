@@ -2,6 +2,7 @@ package ca.ubc.cs.cpsc210.model;
 
 import ca.ubc.cs.cpsc210.model.exceptions.NameFieldEmptyException;
 import ca.ubc.cs.cpsc210.observer.Observable;
+
 import java.util.Objects;
 
 public class Profile extends Observable {

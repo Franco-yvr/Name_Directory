@@ -5,6 +5,7 @@ import ca.ubc.cs.cpsc210.ui.UserInterfacefx;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
+
 import javax.swing.table.TableColumn;
 
 import static javafx.collections.FXCollections.observableArrayList;
@@ -23,7 +24,8 @@ public class ObserverPatternDummy implements Observer {
 //    recententrytable.setItems(displaylist); you were receiving a null pointer for recententrytable,
 //    then when you created a dummy table, the list still wouldnt display....had to stop debugging.
 
-    ObserverPatternDummy() { }
+    public ObserverPatternDummy() {
+    }
 
 //    public  void recentEntry() {
 ////        recententrynamecolumn.setItems(displaylist);

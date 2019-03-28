@@ -49,6 +49,7 @@ public class TestProfile {
         }
         assertFalse(p.equals(p2));
     }
+
     @Test
     public void testOverrideEqualsSameObject() {
         assertTrue(p.equals(p));
@@ -59,6 +60,7 @@ public class TestProfile {
         Profile p3 = null;
         assertFalse(p.equals(p3));
     }
+
     @Test
     public void testOverrideEqualsObjectDifferentType() {
         String s = "whoohooo";

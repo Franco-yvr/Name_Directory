@@ -121,7 +121,7 @@ public class TestContactList {
     }
 
     @Test
-    public void testOverrideEqualsObjectsEqual(){
+    public void testOverrideEqualsObjectsEqual() {
         ContactList l1 = new ContactList();
         ContactList l2 = new ContactList();
         l1.add(p);
@@ -140,20 +140,20 @@ public class TestContactList {
     }
 
     @Test
-    public void testOverrideEqualsSameObject(){
+    public void testOverrideEqualsSameObject() {
         ContactList l1 = new ContactList();
         l1.add(p);
         assertTrue(l1.equals(l1));
     }
 
     @Test
-    public void testOverrideEqualsDifferentType(){
+    public void testOverrideEqualsDifferentType() {
         ContactList l1 = new ContactList();
         assertFalse(l1.equals(p));
     }
 
     @Test
-    public void testOverrideEqualsNullObject(){
+    public void testOverrideEqualsNullObject() {
         ContactList l1 = new ContactList();
         ContactList l2 = null;
         assertFalse(l1.equals(l2));

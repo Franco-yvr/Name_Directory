@@ -1,9 +1,11 @@
 package ca.ubc.cs.cpsc210.tests;
+
 import ca.ubc.cs.cpsc210.model.*;
 import ca.ubc.cs.cpsc210.model.exceptions.*;
 import org.json.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import static ca.ubc.cs.cpsc210.json.Persistence.*;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,7 +16,7 @@ public class TestPersistence {
     private Profile testprofile;
 
     @BeforeEach
-            void setup(){
+    void setup() {
         try {
             testprofile = new Profile("Bill", "General manager", "@Vancouver", "@notrequired");
         } catch (NameFieldEmptyException e) {
@@ -28,7 +30,7 @@ public class TestPersistence {
         JSONArray data = contactListToJson(testcontactlist);
         assertEquals(data.getJSONObject(0).get("name"), "Bill");
         assertEquals(data.getJSONObject(0).get("description"), "General manager");
-        assertEquals(data.getJSONObject(0).getJSONArray("wheretaglist").getString(0) ,"Vancouver");
+        assertEquals(data.getJSONObject(0).getJSONArray("wheretaglist").getString(0), "Vancouver");
         assertEquals(data.getJSONObject(0).getJSONArray("connecttaglist").getString(0), "notrequired");
     }
 
@@ -37,7 +39,7 @@ public class TestPersistence {
         JSONObject data = profileToJson(testprofile);
         assertEquals(data.get("name"), "Bill");
         assertEquals(data.get("description"), "General manager");
-        assertEquals(data.getJSONArray("wheretaglist").getString(0) ,"Vancouver");
+        assertEquals(data.getJSONArray("wheretaglist").getString(0), "Vancouver");
         assertEquals(data.getJSONArray("connecttaglist").getString(0), "notrequired");
     }
 
@@ -45,29 +47,29 @@ public class TestPersistence {
     public void testWhereTagToJson() {
         WhereTagList testwheretaglist = new WhereTagList("@BigNose@OneEye@LongTeeth");
         JSONArray data = whereTagToJson(testwheretaglist);
-        assertEquals(data.getString(0),"BigNose");
-        assertEquals(data.getString(1),"OneEye");
-        assertEquals(data.getString(2),"LongTeeth");
+        assertEquals(data.getString(0), "BigNose");
+        assertEquals(data.getString(1), "OneEye");
+        assertEquals(data.getString(2), "LongTeeth");
     }
 
     @Test
     public void testConnectTagToJson() {
         ConnectTagList testconnecttaglist = new ConnectTagList("@Kitsilano@SanFrancisco@Portland");
         JSONArray data = connectTagToJson(testconnecttaglist);
-        assertEquals(data.getString(0),"Kitsilano");
-        assertEquals(data.getString(1),"SanFrancisco");
-        assertEquals(data.getString(2),"Portland");
+        assertEquals(data.getString(0), "Kitsilano");
+        assertEquals(data.getString(1), "SanFrancisco");
+        assertEquals(data.getString(2), "Portland");
     }
 
     @Test
-    public void readFromDisk(){
+    public void readFromDisk() {
 //        Told by 2 TAs at 7h15pm on March 26 2019 that controller Class and anything to do with UI
 //        is not necessary to test due to the difficulty of working around textfields and database,
 //        especilly that it is very visible whether a functionality works or not
     }
 
     @Test
-    public void readFile(){
+    public void readFile() {
 //        Told by 2 TAs at 7h15pm on March 26 2019 that controller Class and anything to do with UI
 //        is not necessary to test due to the difficulty of working around textfields and database,
 //        especilly that it is very visible whether a functionality works or not

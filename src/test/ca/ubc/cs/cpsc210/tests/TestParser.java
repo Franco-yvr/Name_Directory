@@ -36,7 +36,7 @@ public class TestParser {
 
     @Test
     public void testJsonToContactList() {
-        assertEquals(jsonToContactList(testjsoncontactlist).getContact(0),testprofile);
+        assertEquals(jsonToContactList(testjsoncontactlist).getContact(0), testprofile);
     }
 
     @Test
@@ -54,6 +54,6 @@ public class TestParser {
 
     @Test
     public void testJsonToConnectTagList() {
-        assertEquals(jsonToConnectTagList(testconnecttaglist).getTagItem(0),"notrequired");
+        assertEquals(jsonToConnectTagList(testconnecttaglist).getTagItem(0), "notrequired");
     }
 }

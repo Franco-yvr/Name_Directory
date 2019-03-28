@@ -16,7 +16,7 @@ public class TestExceptions {
     private Profile testprofile;
 
     @BeforeEach
-            void setup(){
+    void setup() {
         try {
             testprofile = new Profile("Bill", "General manager", "@Vancouver", "@notrequired");
         } catch (NameFieldEmptyException e) {
