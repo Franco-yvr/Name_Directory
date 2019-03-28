@@ -17,13 +17,13 @@ public class ObserverPatternDummy implements Observer {
     private static TableColumn recententrynamecolumn;
 
     @FXML
-    private static TableView recententrytable;
+    private static TableView<String> recententrytable;
     //Where you left-> you tried implementing a ListView then VBox table instead
 //    but still couldnt fill the table, the listView and VBox fxml are now deleted. The problem was at
 //    recententrytable.setItems(displaylist); you were receiving a null pointer for recententrytable,
 //    then when you created a dummy table, the list still wouldnt display....had to stop debugging.
 
-    public ObserverPatternDummy() { }
+    ObserverPatternDummy() { }
 
 //    public  void recentEntry() {
 ////        recententrynamecolumn.setItems(displaylist);
