@@ -5,12 +5,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ca.ubc.cs.cpsc210.model.*;
 
+import java.util.NoSuchElementException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestTagList {
 
     private TagList testTagList;
     private TagList testTagList2;
+    TagList testTagList3 = new TagList();
     private Profile p;
 
     @BeforeEach
@@ -109,12 +112,32 @@ public class TestTagList {
         String s = "Awesome";
         assertFalse(testTagList.equals(s));
     }
+
+    @Test
+    public void testIteratorNext() {
+        assertEquals(testTagList.iterator().next(), "Whistler");
+    }
+
+    @Test
+    public void testIteratorDoesntHaveNext() {
+        Boolean b = false;
+        try {
+            testTagList3.iterator().next();
+            fail();
+        } catch (NoSuchElementException e) {
+            b = true;
+        }
+        assertTrue(b);
+    }
+
+    @Test
+    public void testIteratorHasNext() {
+        assertTrue(testTagList.iterator().hasNext());
+        assertTrue(testTagList.iterator().hasNext());
+    }
+
+    @Test
+    public void testIteratorDoesntHasNext() {
+        assertFalse(testTagList3.iterator().hasNext());
+    }
 }
-
-
-//    @Test
-//    public void testEqual(){
-//        String a = "";
-//        String b = null;
-//        boolean isNull = a.equals(b);
-//        System.out.println(isNull); o

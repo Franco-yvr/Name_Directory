@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -158,24 +159,47 @@ public class TestContactList {
         ContactList l2 = null;
         assertFalse(l1.equals(l2));
     }
+
+    @Test
+    public void testIteratorNext() {
+        Profile p2 = null;
+        try {
+            p2 = new Profile("Jack", "Short", "@Penticton", "@2019");
+        } catch (NameFieldEmptyException e) {
+            fail("We shouldn't get an exception for the purpose of this test");
+        }
+        c.add(p2);
+        assertEquals(c.iterator().next(), p2);
+    }
+
+    @Test
+    public void testIteratorDoesntHaveNext() {
+        Boolean b = false;
+        try {
+            c.iterator().next();
+            fail();
+        } catch (NoSuchElementException e) {
+            b = true;
+        }
+        assertTrue(b);
+    }
+
+    @Test
+    public void testIteratorHasNext() {
+        Profile p2 = null;
+        try {
+            p2 = new Profile("Jack", "Short", "@Penticton", "@2019");
+        } catch (NameFieldEmptyException e) {
+            fail("We shouldn't get an exception for the purpose of this test");
+        }
+        c.add(p2);
+        assertTrue(c.iterator().hasNext());
+    }
+
+    @Test
+    public void testIteratorDoesntHasNext() {
+        Profile p2 = null;
+        assertFalse(c.iterator().hasNext());
+    }
 }
 
-//    @Test
-//    public void TestAddContactWithoutName() {
-//        assertFalse(c.addContact("", "tall", "@Squamish", "@2012"));
-//        assertTrue(c.getContactList().isEmpty());
-//    }
-//
-//    @Test
-//    public void TestAddContactWithName() {
-//        assertTrue(c.addContact("Bill", "tall", "@Squamish", "@2012"));
-//        assertEquals(c.getContact(0).getName().getName(), "Bill");
-//        assertEquals(c.getContact(0).getDescription().getDescription(), "tall");
-//        assertEquals(c.getContact(0).getWhereTag().getTagItem(0), "Squamish");
-//        assertEquals(c.getContact(0).getConnectTag().getTagItem(0), "2012");
-//    }
-
-//    private Name b = new Name("Bill");
-//    private Description t = new Description("tall");
-//    private WhereTagList s = new WhereTagList("@Squamish");
-//    private ConnectTagList two = new ConnectTagList("@2012");
