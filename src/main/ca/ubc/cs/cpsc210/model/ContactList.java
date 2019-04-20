@@ -95,7 +95,10 @@ public class ContactList implements Iterable<Profile> {
     public Iterator<Profile> iterator() {
         return contactlist.iterator();
     }
-//
+
+
+// future plan to implement an advanced iterator
+    //
 //    private class ContactListIterator implements Iterator<Profile> {
 //
 ////        private Iterator<Profile> contactlistiterator = contactlist.iterator();

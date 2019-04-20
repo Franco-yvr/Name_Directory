@@ -6,10 +6,3 @@ public class EmptyStringException extends Exception {
         super(msg);
     }
 }
-
-public class OutOfBoundException extends RuntimeException {
-
-    public OutOfBoundException(int index) {
-        super("The index " + Integer.toString(index) + " is smaller or larger than the list of size");
-    }
-}
