@@ -9,7 +9,7 @@ import java.util.*;
 
 public class ContactList implements Iterable<Profile> {
 
-    private List<Profile> contactlist;
+    private ArrayList<Profile> contactlist;
 
     // MODIFIES: this
     // EFFECTS: Construct a arraylist to contain and utilise the new profiles
@@ -93,24 +93,25 @@ public class ContactList implements Iterable<Profile> {
 
     @Override
     public Iterator<Profile> iterator() {
-        return new ContactListIterator();
+        return contactlist.iterator();
     }
-
-    private class ContactListIterator implements Iterator<Profile> {
-
-        private Iterator<Profile> contactlistiterator = contactlist.iterator();
-
-        @Override
-        public boolean hasNext() {
-            return contactlistiterator.hasNext();
-        }
-
-        @Override
-        public Profile next() {
-            if (!contactlistiterator.hasNext()) {
-                throw new NoSuchElementException();
-            }
-            return contactlistiterator.next();
-        }
-    }
+//
+//    private class ContactListIterator implements Iterator<Profile> {
+//
+////        private Iterator<Profile> contactlistiterator = contactlist.iterator();
+//
+//        @Override
+//        public boolean hasNext() {
+//            return contactlistiterator.hasNext();
+//        }
+//
+//        @Override
+//        public Profile next() {
+//            if (!contactlistiterator.hasNext()) {
+//                throw new NoSuchElementException();
+//            }
+//            return contactlistiterator.next();
+//        }
+//    }
+//}
 }

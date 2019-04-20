@@ -15,6 +15,29 @@ public class ConnectTagList extends TagList {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Note: it has been noted that the ConnectTagList and WhereTagList are identical
 //and extending TagList which contain all the implementations. Although it may
 //look redundant at this moment, this distinction will be necessary in the future because
