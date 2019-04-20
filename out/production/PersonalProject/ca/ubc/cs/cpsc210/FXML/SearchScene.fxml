@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.ubc.cs.cpsc210.controller.Controller">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Don't Touch That!" />
+               </items></Menu>
+        <Menu mnemonicParsing="false" text="Help" />
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TabPane fx:id="tabPane" prefHeight="430.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="profileTabButton" closable="false" text="Profile Entry">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="366.0" prefWidth="640.0">
+                           <children>
+                              <TextField fx:id="nameField" layoutX="48.0" layoutY="42.0" prefHeight="27.0" prefWidth="500.0" promptText="Name" />
+                              <TextField fx:id="descriptionField" layoutX="48.0" layoutY="92.0" prefHeight="75.0" prefWidth="500.0" promptText="Description" />
+                              <TextField fx:id="whereTagField" layoutX="48.0" layoutY="191.0" prefHeight="27.0" prefWidth="500.0" promptText="\@Where this person was met, i.e. @whistler @party @2018 @ubc @cpsc" />
+                              <TextField fx:id="connectTagField" layoutX="48.0" layoutY="244.0" prefHeight="27.0" prefWidth="500.0" promptText="\@When to connect with this person, i.e. @christmas @everyyear @december" />
+                              <Button fx:id="profileSaveButton" layoutX="534.0" layoutY="306.0" mnemonicParsing="false" onAction="#saveButton" text="Save" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="searchTabButton" text="Profile Search">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="searchBox" layoutX="31.0" layoutY="24.0" prefHeight="26.0" prefWidth="429.0" promptText=" Enter Keyword or Tag Here" />
+                              <Button fx:id="searchButton" layoutX="524.0" layoutY="21.0" mnemonicParsing="false" onAction="#searchButton" text="Search" />
+                              <TableView fx:id="resultTable" layoutX="4.0" layoutY="73.0" prefHeight="297.0" prefWidth="633.0">
+                                <columns>
+                                  <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
+                                  <TableColumn fx:id="descriptionColumn" prefWidth="308.0" text="Description" />
+                                    <TableColumn fx:id="whereTagColumn" minWidth="0.0" prefWidth="117.0" text="WhereTag" />
+                                    <TableColumn fx:id="connectTagColumn" prefWidth="132.3333740234375" text="ConnectTag" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

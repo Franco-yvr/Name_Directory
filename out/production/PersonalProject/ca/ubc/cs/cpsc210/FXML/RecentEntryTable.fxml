@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+
+<TableView fx:id="recententrytable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+           minWidth="-Infinity" prefHeight="400.0" prefWidth="283.0" xmlns="http://javafx.com/javafx/8.0.171"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.ubc.cs.cpsc210.controller.ObserverPatternDummy">
+    <columns>
+        <TableColumn fx:id="recententrynamecolumn" prefWidth="281.0000305175781" text="The profile has been created!"/>
+    </columns>
+</TableView>
