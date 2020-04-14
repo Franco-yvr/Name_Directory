@@ -79,13 +79,8 @@ To be Fixed: Potentially remove redundant methods
                               -"add"
                               -"getTagItem"
                               -lengthContactList
-                              -clean //reject piles of dismissed methods
+                              -clean
 
-
-Next:
-      Figure out how to display the results list made by searchResult
-      Implement a main
-      implement the test for json
 
 
 Longer term:Learn JSON file
