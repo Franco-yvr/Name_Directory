@@ -64,31 +64,13 @@ Functions for ContactList Class:            getContactList
                                             searchProfile
                                             searchResult
 
-=================================================================================================================
 
-to do:      Abstract the tag folders (DONE)
+todo:      Abstract the tag folders (DONE)
             create search method (DONE)
             Need to figure out the public and private field (DONE)
             implement the search function (DONE)
             Implement the Result function (DONE)
             Test ALL methods (DONE)
             convertIntoList (parsing problem) (DONE)
-
-
-To be Fixed: Potentially remove redundant methods
-                              -"add"
-                              -"getTagItem"
-                              -lengthContactList
-                              -clean
-
-
-
-Longer term:Learn JSON file
-            Learn Android Studio
-            Learn how to Reset fields in interface 1
-            google how the equals and hashmap override works
-            google how to save JSON data into a file in your computer
-            start GUI
-            make tag makers more flexible because right now it is very prticular with spaces, @ signs, etc(i.e."@BigNose@OneEye@LongTeeth");
 
 
